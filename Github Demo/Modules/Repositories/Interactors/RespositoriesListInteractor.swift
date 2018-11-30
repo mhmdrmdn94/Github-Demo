@@ -15,8 +15,13 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
     fileprivate var currentPage = 1
     fileprivate var searchKeyword = ""
     
-    func loadRepositories(usingSearchKey keyword: String) {
-        searchKeyword = keyword
+    func loadRepositories(usingSearchKey newKeyword: String) {
+        if searchKeyword != newKeyword {
+            searchKeyword = newKeyword
+            repositories = []
+            currentPage = 1
+        }
+        
         if searchKeyword.isEmpty {
             //TODO: show empty state
             return

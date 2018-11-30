@@ -10,10 +10,12 @@ import UIKit
 import UIScrollView_InfiniteScroll
 
 class RepositoriesListViewController: BaseViewController {
-
     @IBOutlet weak fileprivate var tableView: UITableView!
     
     weak var presenter: RespositoriesListPresenterProtocol?
+    
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate var searchTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ fileprivate extension RepositoriesListViewController {
     fileprivate func setupView() {
         setupTableView()
         setupTableViewInfiniteScrolling()
+        setupSearchController()
     }
     
     func setupTableView() {
@@ -79,6 +82,62 @@ extension RepositoriesListViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Row #\( indexPath.row ) is selected.")
+    }
+}
+
+fileprivate extension RepositoriesListViewController {
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for repository..."
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .white
+    }
+    
+    func isSearchBarEmpty() -> Bool {
+        let isEmpty = searchController.searchBar.text?.isEmpty ?? true
+        return isEmpty
+    }
+}
+
+extension RepositoriesListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print(">>>ended editing")
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print(">>> cancel button tapped")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            //TODO: show empty state
+            print("Showing empty state")
+        }
+    }
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchTimer != nil {
+            searchTimer.invalidate()
+        }
+        if let searchKeyword = searchController.searchBar.text, !searchKeyword.isEmpty {
+            searchTimer = Timer.scheduledTimer(timeInterval: 1,
+                                               target: self,
+                                               selector: #selector(self.searchForRepository),
+                                               userInfo: searchKeyword, repeats: false)
+        }
+    }
+    
+    @objc private func searchForRepository() {
+        if let searchKeyword = searchTimer.userInfo as? String {
+            presenter?.loadRepositories(usingSearchKey: searchKeyword)
+        }
+        searchTimer.invalidate()
     }
 }
 
