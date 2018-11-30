@@ -7,14 +7,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 struct RepositoryTableViewCellViewModel {
     var name: String
     var ownerAvatar: URL
     var description: String
-    var numberOfForks: Int
-    var numberOfWatchers: Int
+    private var numberOfForks: Int
+    private var numberOfWatchers: Int
     var indexPath: IndexPath
+    
+    var forksString: String {
+        let forksTitle = (numberOfForks > 1) ? "forks":"fork"
+        return numberOfForks.description + " " + forksTitle
+    }
+    
+    var watchersString: String {
+        let watchersTitle = (numberOfWatchers > 1) ? "watchers":"watcher"
+        return numberOfWatchers.description + " " + watchersTitle
+    }
 }
 
 class RepositoryTableViewCell: UITableViewCell {
@@ -40,7 +51,14 @@ class RepositoryTableViewCell: UITableViewCell {
     }
     
     private func configure() {
-       guard let viewModel = viewModel else { return }
+        guard let viewModel = viewModel else { return }
+        ownerAvatarImageView.sd_setImage(with: viewModel.ownerAvatar,
+                                         placeholderImage: #imageLiteral(resourceName: "Octocat"),
+                                         completed: nil)
+        nameLabel.text = viewModel.name
+        descriptionLabel.text = viewModel.description
+        numberOfForksLabel.text = viewModel.forksString
+        numberOfWatchersLabel.text = viewModel.watchersString
     }
     
 }
