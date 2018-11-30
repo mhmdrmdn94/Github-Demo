@@ -9,22 +9,33 @@
 import UIKit
 
 class LoginViewController: BaseViewController {
-
+    
+    @IBOutlet weak fileprivate var skipButton: UIButton!
+    @IBOutlet weak fileprivate var emailTextField: UITextField!
+    @IBOutlet weak fileprivate var loginButton: UIButton!
+    @IBOutlet weak fileprivate var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupView()
     }
     
+    private func setupView() {
+        loginButton.roundCorners(withRadius: 10)
+        loginButton.backgroundColor = GitColor.darkBlue.value
+        loginButton.tintColor = .white
+    }
+    @IBAction func skipButtonTapped(_ sender: UIButton) {
+       openRepositoriesListViewController()
+    }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        let reposViewController = RespositoriesListBuilder().createRespositoriesListModule()
-        navigationController?.pushViewController(reposViewController, animated: true)
+        openRepositoriesListViewController()
+    }
+    
+    private func openRepositoriesListViewController() {
+        let reposListViewController = RespositoriesListBuilder().createRespositoriesListModule()
+        UIApplication.shared.keyWindow?.rootViewController = BaseNavigationController(rootViewController: reposListViewController)
     }
     
 }
