@@ -14,26 +14,13 @@ class RepositoriesListViewController: UIViewController {
 
     @IBOutlet weak fileprivate var tableView: UITableView!
     
+    weak var presenter: RespositoriesListPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        getDummyData()
+        presenter?.loadRepositories(usingSearchKey: "alamofire")
     }
-    
-    //MARK:- just for testing endpoints
-    func getDummyData() {
-        ReposService.search(keyword: "alamofire",
-                            page: 1,
-                            onSuccess: { (repositories) in
-                                print(repositories)
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        
-        
-    }
-    
 }
 
 fileprivate extension RepositoriesListViewController {
@@ -64,14 +51,18 @@ fileprivate extension RepositoriesListViewController {
 
 extension RepositoriesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return presenter?.getRepositoriesCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell  = tableView.dequeueReusableCell(withIdentifier: String(describing: RepositoryTableViewCell.self))
+        guard let presenter = presenter,
+            let cell  = tableView.dequeueReusableCell(withIdentifier: String(describing: RepositoryTableViewCell.self))
             as? RepositoryTableViewCell else {
                 return UITableViewCell()
         }
+        var viewModel = presenter.getViewModel(at: indexPath)
+        viewModel.indexPath = indexPath
+        cell.viewModel = viewModel
         return cell
     }
     
@@ -80,4 +71,20 @@ extension RepositoriesListViewController: UITableViewDelegate, UITableViewDataSo
     }
 }
 
-
+extension RepositoriesListViewController: RespositoriesListViewProtocol {
+    func reloadRepositories() {
+        tableView.reloadData()
+    }
+    
+    func showLoader() {
+        //TODO:- show loader
+    }
+    
+    func hideLoader() {
+        //TODO:- hide loader
+    }
+    
+    func showErrorMessage(_ message: String) {
+        //TODO:- show alert
+    }
+}

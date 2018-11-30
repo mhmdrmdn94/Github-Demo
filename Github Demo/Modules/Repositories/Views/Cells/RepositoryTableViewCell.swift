@@ -11,11 +11,11 @@ import SDWebImage
 
 struct RepositoryTableViewCellViewModel {
     var name: String
-    var ownerAvatar: URL
+    var ownerAvatar: URL?
     var description: String
     private var numberOfForks: Int
     private var numberOfWatchers: Int
-    var indexPath: IndexPath
+    var indexPath: IndexPath?
     
     var forksString: String {
         let forksTitle = (numberOfForks > 1) ? "forks":"fork"
@@ -26,6 +26,19 @@ struct RepositoryTableViewCellViewModel {
         let watchersTitle = (numberOfWatchers > 1) ? "watchers":"watcher"
         return numberOfWatchers.description + " " + watchersTitle
     }
+    
+    init(name: String,
+         ownerAvatar: URL?,
+         description: String,
+         numberOfForks: Int,
+         numberOfWatchers: Int) {
+        self.name = name
+        self.ownerAvatar = ownerAvatar
+        self.description = description
+        self.numberOfWatchers = numberOfWatchers
+        self.numberOfForks = numberOfForks
+    }
+    
 }
 
 class RepositoryTableViewCell: UITableViewCell {

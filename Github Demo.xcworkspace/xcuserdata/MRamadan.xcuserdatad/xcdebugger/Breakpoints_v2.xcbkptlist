@@ -4,18 +4,124 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Login/LoginViewController.swift"
+            timestampString = "565294771.933893"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "loginButtonTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Wireframe/RespositoriesListBuilder.swift"
+            timestampString = "565294771.9342231"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "createRespositoriesListModule()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Wireframe/RespositoriesListBuilder.swift"
+            timestampString = "565294771.934455"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "createRespositoriesListModule()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565287408.769425"
+            timestampString = "565294771.934515"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
+            timestampString = "565294771.93505"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Presenters/RespositoriesListPresenter.swift"
+            timestampString = "565294771.935287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getRepositoriesCount()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Presenters/RespositoriesListPresenter.swift"
+            timestampString = "565294771.935505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "getDummyData()"
+            landmarkName = "getViewModel(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +131,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565287408.769489"
+            filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
+            timestampString = "565294771.935563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getDummyData()"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "loadRepositories(usingSearchKey:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +147,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565287408.769533"
+            filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
+            timestampString = "565294771.935779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "getDummyData()"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "loadRepositories(usingSearchKey:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
+            timestampString = "565294771.93583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "loadRepositories(usingSearchKey:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
+            timestampString = "565294771.935877"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "loadRepositories(usingSearchKey:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-            timestampString = "565287408.769581"
+            timestampString = "565294771.935926"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -74,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-            timestampString = "565287408.769624"
+            timestampString = "565294771.936131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -90,7 +228,7 @@
                   moduleName = "Github Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MRamadan/Documents/Development/Github%20Demo/Github%20Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-                  timestampString = "565287408.937341"
+                  timestampString = "565293979.04684"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -105,7 +243,7 @@
                   moduleName = "Github Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MRamadan/Documents/Development/Github%20Demo/Github%20Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-                  timestampString = "565287408.939011"
+                  timestampString = "565293979.04899"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
@@ -122,23 +260,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-            timestampString = "565287408.769666"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "search(keyword:page:onSuccess:onFailure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Github Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-            timestampString = "565287408.769707"
+            timestampString = "565294771.9361809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -154,7 +276,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-            timestampString = "565287408.7697459"
+            timestampString = "565294771.936226"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -170,7 +292,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Core/Network/ModulesServices/Repositories/ReposService.swift"
-            timestampString = "565287408.769785"
+            timestampString = "565294771.936268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -185,77 +307,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Github Demo/Core/Network/Base/GitNetwork.swift"
-            timestampString = "565287408.769827"
+            filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
+            timestampString = "565294771.936311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repositories/Presenters/RespositoriesListPresenter.swift"
+            timestampString = "565294771.936536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "request(request:onSuccess:onFailure:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Github_Demo.GitNetwork.request(request: Alamofire.URLRequestConvertible, onSuccess: Swift.Optional&lt;(Alamofire.DataResponse&lt;Any&gt;, Swift.Optional&lt;Any&gt;) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.Optional&lt;Alamofire.DataResponse&lt;Any&gt;&gt;, Swift.Error) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Github Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MRamadan/Documents/Development/Github%20Demo/Github%20Demo/Core/Network/Base/GitNetwork.swift"
-                  timestampString = "565287408.955974"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "382">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in static Github_Demo.GitNetwork.request(request: Alamofire.URLRequestConvertible, onSuccess: Swift.Optional&lt;(Alamofire.DataResponse&lt;Any&gt;, Swift.Optional&lt;Any&gt;) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.Optional&lt;Alamofire.DataResponse&lt;Any&gt;&gt;, Swift.Error) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Github Demo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MRamadan/Documents/Development/Github%20Demo/Github%20Demo/Core/Network/Base/GitNetwork.swift"
-                  timestampString = "565287408.957575"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Github Demo/Core/Network/Base/GitURLRequestConvertible.swift"
-            timestampString = "565287408.7698669"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "asURLRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Github Demo/Core/Network/Base/GitURLRequestConvertible.swift"
-            timestampString = "565287408.770144"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "asURLRequest()"
+            landmarkName = "loadRepositories(usingSearchKey:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
