@@ -26,10 +26,14 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
             .search(keyword: searchKeyword,
                     page: currentPage,
                     onSuccess: { [weak self] (repositories) in
-                        
-                        //TODO: chack page number to append or reset your datasource
-                        self?.repositories = repositories
-                        self?.presenter?.didLoadRepositories()
+                        guard let strongSelf = self else { return }
+                        if strongSelf.currentPage == 1 {
+                            strongSelf.repositories = repositories
+                        } else {
+                            strongSelf.repositories.append(contentsOf: repositories)
+                        }
+                        strongSelf.currentPage = strongSelf.currentPage + 1
+                        strongSelf.presenter?.didLoadRepositories()
                         
             }) { [weak self] (error) in
                 self?.presenter?.onError(error)

@@ -11,5 +11,6 @@ target 'Github Demo' do
   	pod 'NVActivityIndicatorView'
   	pod 'SDWebImage'
     pod 'SwiftyJSON'
+    pod 'UIScrollView-InfiniteScroll', '~> 1.1.0'
 
 end

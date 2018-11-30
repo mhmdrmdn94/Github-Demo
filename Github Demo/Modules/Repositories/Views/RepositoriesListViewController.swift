@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIScrollView_InfiniteScroll
 
 class RepositoriesListViewController: UIViewController {
 
@@ -28,6 +29,7 @@ fileprivate extension RepositoriesListViewController {
     
     fileprivate func setupView() {
         setupTableView()
+        setupTableViewInfiniteScrolling()
     }
     
     func setupTableView() {
@@ -43,6 +45,17 @@ fileprivate extension RepositoriesListViewController {
             let cellName = String(describing: item)
             let nib = UINib(nibName: cellName, bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: cellName)
+        }
+    }
+    
+    func setupTableViewInfiniteScrolling(){
+        
+        self.tableView.addInfiniteScroll { [weak self] (tableView) in
+            self?.presenter?.loadRepositories(usingSearchKey: "alamofire")
+        }
+        
+        self.tableView.setShouldShowInfiniteScrollHandler { (tableView) -> Bool in
+            return true     //cuz no last-page indicator!
         }
     }
 }
@@ -83,6 +96,6 @@ extension RepositoriesListViewController: RespositoriesListViewProtocol {
     }
     
     func showErrorMessage(_ message: String) {
-        //TODO:- show alert
+        Alert.show(message: message)
     }
 }
