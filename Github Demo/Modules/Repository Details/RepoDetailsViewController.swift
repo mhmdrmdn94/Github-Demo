@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepoDetailsViewController: UIViewController {
+class RepoDetailsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

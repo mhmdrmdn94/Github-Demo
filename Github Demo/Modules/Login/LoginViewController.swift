@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        let reposViewController = RepositoriesListViewController()
+        let reposViewController = RespositoriesListBuilder().createRespositoriesListModule()
         navigationController?.pushViewController(reposViewController, animated: true)
     }
     
