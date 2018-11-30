@@ -23,27 +23,15 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
         }
         
         if searchKeyword.isEmpty {
-            //TODO: show empty state
+            showEmptyState(withType: .noSearchKeywordLogged)
             return
         }
         
-        ReposService
-            .search(keyword: searchKeyword,
-                    page: currentPage,
-                    onSuccess: { [weak self] (repositories) in
-                        guard let strongSelf = self else { return }
-                        if strongSelf.currentPage == 1 {
-                            strongSelf.repositories = repositories
-                        } else {
-                            strongSelf.repositories.append(contentsOf: repositories)
-                        }
-                        strongSelf.currentPage = strongSelf.currentPage + 1
-                        strongSelf.presenter?.didLoadRepositories()
-                        
-            }) { [weak self] (error) in
-                self?.presenter?.onError(error)
-        }
-        
+        fetchRepositories()
+    }
+    
+    func loadRepositories() {
+        fetchRepositories()
     }
     
     func getRepositoriesCount() -> Int {
@@ -68,6 +56,43 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
 }
 
 fileprivate extension RespositoriesListInteractor {
+    
+    func fetchRepositories() {
+        ReposService
+            .search(keyword: searchKeyword,
+                    page: currentPage,
+                    onSuccess: { [weak self] (repositories) in
+                        guard let strongSelf = self else { return }
+                        
+                        if repositories.isEmpty {
+                            self?.showEmptyState(withType: .noResults)
+                            self?.repositories = []
+                            return
+                        }
+                        
+                        if strongSelf.currentPage == 1 {
+                            strongSelf.repositories = repositories
+                        } else {
+                            strongSelf.repositories.append(contentsOf: repositories)
+                        }
+                        strongSelf.currentPage = strongSelf.currentPage + 1
+                        strongSelf.presenter?.didLoadRepositories()
+                        
+            }) { [weak self] (error) in
+                let nserror = error as NSError
+                if nserror.code == 1009 {
+                    self?.showEmptyState(withType: .noInternetConnection)
+                } else {
+                    self?.showEmptyState(withType: .someThingWentWrong)
+                }
+        }
+    }
+    
+    func showEmptyState(withType type: GitEmptyStateType) {
+        let emptyStateViewModel = type.viewModel
+        presenter?.showEmptyState(with: emptyStateViewModel)
+    }
+    
     func constuctRepositoryViewModelFrom(_ repository: Repository) -> RepositoryTableViewCellViewModel {
         let name = repository.name ?? "Name N/A"
         let description = repository.repoDescription ?? "Description N/A"

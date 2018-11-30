@@ -14,14 +14,16 @@ class RepositoriesListViewController: BaseViewController {
     
     weak var presenter: RespositoriesListPresenterProtocol?
     
+    fileprivate let emptyStateView = GitEmptyStateView()
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     fileprivate var searchTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        presenter?.loadRepositories(usingSearchKey: "alamofire")
+        presenter?.loadRepositories(usingSearchKey: "")
     }
+    
 }
 
 fileprivate extension RepositoriesListViewController {
@@ -54,11 +56,11 @@ fileprivate extension RepositoriesListViewController {
     func setupTableViewInfiniteScrolling(){
         
         self.tableView.addInfiniteScroll { [weak self] (tableView) in
-            self?.presenter?.loadRepositories(usingSearchKey: "alamofire")
+            self?.presenter?.loadRepositories()
         }
         
         self.tableView.setShouldShowInfiniteScrollHandler { (tableView) -> Bool in
-            return true     //cuz no last-page indicator!
+            return true     //cuz no last-page indicator in gethub response!
         }
     }
 }
@@ -96,36 +98,15 @@ fileprivate extension RepositoriesListViewController {
         searchController.searchBar.tintColor = .white
         searchController.searchBar.barTintColor = .white
     }
-    
-    func isSearchBarEmpty() -> Bool {
-        let isEmpty = searchController.searchBar.text?.isEmpty ?? true
-        return isEmpty
-    }
 }
 
 extension RepositoriesListViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print(">>>ended editing")
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print(">>> cancel button tapped")
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            //TODO: show empty state
-            print("Showing empty state")
-        }
-    }
-    
     
     func updateSearchResults(for searchController: UISearchController) {
         if searchTimer != nil {
             searchTimer.invalidate()
         }
-        if let searchKeyword = searchController.searchBar.text, !searchKeyword.isEmpty {
+        if let searchKeyword = searchController.searchBar.text {
             searchTimer = Timer.scheduledTimer(timeInterval: 1,
                                                target: self,
                                                selector: #selector(self.searchForRepository),
@@ -142,7 +123,15 @@ extension RepositoriesListViewController: UISearchResultsUpdating, UISearchBarDe
 }
 
 extension RepositoriesListViewController: RespositoriesListViewProtocol {
+    func showEmptyState(with viewModel: GitEmptyStateViewModel) {
+        tableView.reloadData()
+        emptyStateView.viewModel = viewModel
+        emptyStateView.delegate = self
+        tableView.backgroundView = emptyStateView
+    }
+    
     func reloadRepositories() {
+        tableView.backgroundView = nil
         tableView.reloadData()
     }
     
@@ -156,5 +145,11 @@ extension RepositoriesListViewController: RespositoriesListViewProtocol {
     
     func showErrorMessage(_ message: String) {
         Alert.show(message: message)
+    }
+}
+
+extension RepositoriesListViewController: GitEmptyStateViewDelegate {
+    func didTapActionButton() {
+        presenter?.loadRepositories()
     }
 }

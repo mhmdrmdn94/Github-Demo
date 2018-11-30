@@ -26,6 +26,10 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
         interactor.loadRepositories(usingSearchKey: keyword)
     }
     
+    func loadRepositories() {
+        interactor.loadRepositories()
+    }
+    
     func getRepositoriesCount() -> Int {
         let count = interactor.getRepositoriesCount()
         return count
@@ -51,6 +55,11 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
 }
 
 extension RespositoriesListPresenter: RespositoriesListInteractorOutputProtocol {
+    func showEmptyState(with viewModel: GitEmptyStateViewModel) {
+        view?.hideLoader()
+        view?.showEmptyState(with: viewModel)
+    }
+    
     func didLoadRepositories() {
         view?.hideLoader()
         view?.reloadRepositories()

@@ -15,6 +15,7 @@ protocol RespositoriesListViewProtocol: class {
     func reloadRepositories()
     func showLoader()
     func hideLoader()
+    func showEmptyState(with viewModel: GitEmptyStateViewModel)
     func showErrorMessage(_ message: String)
 }
 
@@ -24,6 +25,7 @@ protocol RespositoriesListPresenterProtocol: class {
     var interactor: RespositoriesListInteractorProtocol { get set }
     
     func loadRepositories(usingSearchKey keyword: String)
+    func loadRepositories()
     func getRepositoriesCount() -> Int
     func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel
     func getModel(at indexPath: IndexPath) -> Repository
@@ -33,6 +35,7 @@ protocol RespositoriesListPresenterProtocol: class {
 
 protocol RespositoriesListInteractorOutputProtocol: class {
     func didLoadRepositories()
+    func showEmptyState(with viewModel: GitEmptyStateViewModel)
     func onError(_ error: Error)
 }
 
@@ -40,6 +43,7 @@ protocol RespositoriesListInteractorProtocol: class {
     var presenter : RespositoriesListInteractorOutputProtocol? { get set}
     
     func loadRepositories(usingSearchKey keyword: String)
+    func loadRepositories()
     func getRepositoriesCount() -> Int
     func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel
     func getModel(at indexPath: IndexPath) -> Repository

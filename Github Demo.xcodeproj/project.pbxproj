@@ -38,6 +38,10 @@
 		462CE66221B1D73F00505D65 /* GitColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE66121B1D73F00505D65 /* GitColor.swift */; };
 		462CE66421B1D74B00505D65 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE66321B1D74B00505D65 /* BaseViewController.swift */; };
 		462CE66621B1D75900505D65 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE66521B1D75900505D65 /* BaseNavigationController.swift */; };
+		462CE66921B1E65E00505D65 /* GitEmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462CE66821B1E65E00505D65 /* GitEmptyStateView.xib */; };
+		462CE66B21B1E67000505D65 /* GitEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE66A21B1E67000505D65 /* GitEmptyStateView.swift */; };
+		462CE66D21B1EB1400505D65 /* UIView+PinToEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE66C21B1EB1400505D65 /* UIView+PinToEdges.swift */; };
+		462CE66F21B1EF0400505D65 /* GitEmptyStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE66E21B1EF0400505D65 /* GitEmptyStateManager.swift */; };
 		CF50FB397D62A94008174D16 /* Pods_Github_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1ED945368FE5AB64BC8462 /* Pods_Github_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +79,10 @@
 		462CE66121B1D73F00505D65 /* GitColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitColor.swift; sourceTree = "<group>"; };
 		462CE66321B1D74B00505D65 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		462CE66521B1D75900505D65 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		462CE66821B1E65E00505D65 /* GitEmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitEmptyStateView.xib; sourceTree = "<group>"; };
+		462CE66A21B1E67000505D65 /* GitEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitEmptyStateView.swift; sourceTree = "<group>"; };
+		462CE66C21B1EB1400505D65 /* UIView+PinToEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PinToEdges.swift"; sourceTree = "<group>"; };
+		462CE66E21B1EF0400505D65 /* GitEmptyStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitEmptyStateManager.swift; sourceTree = "<group>"; };
 		9A1ED945368FE5AB64BC8462 /* Pods_Github_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Github_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B66D646BB392E3C215755C /* Pods-Github Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Demo/Pods-Github Demo.release.xcconfig"; sourceTree = "<group>"; };
 		DA2E1B4E42F6C1A674A69FE4 /* Pods-Github Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Demo/Pods-Github Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +241,7 @@
 			children = (
 				462CE65C21B1D54B00505D65 /* UIView+RoundedCorners.swift */,
 				462CE65E21B1D56300505D65 /* UIColor+hex.swift */,
+				462CE66C21B1EB1400505D65 /* UIView+PinToEdges.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,11 +319,22 @@
 		462CE66021B1D73000505D65 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				462CE66721B1E63A00505D65 /* EmptyState */,
 				462CE66121B1D73F00505D65 /* GitColor.swift */,
 				462CE66321B1D74B00505D65 /* BaseViewController.swift */,
 				462CE66521B1D75900505D65 /* BaseNavigationController.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		462CE66721B1E63A00505D65 /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+				462CE66821B1E65E00505D65 /* GitEmptyStateView.xib */,
+				462CE66A21B1E67000505D65 /* GitEmptyStateView.swift */,
+				462CE66E21B1EF0400505D65 /* GitEmptyStateManager.swift */,
+			);
+			path = EmptyState;
 			sourceTree = "<group>";
 		};
 		9E6E6838CFD1F1005FA7B8D4 /* Pods */ = {
@@ -397,6 +417,7 @@
 				462CE61E21B14F7200505D65 /* LoginViewController.xib in Resources */,
 				462CE61121B14EE000505D65 /* LaunchScreen.storyboard in Resources */,
 				462CE62821B150AE00505D65 /* RepoDetailsViewController.xib in Resources */,
+				462CE66921B1E65E00505D65 /* GitEmptyStateView.xib in Resources */,
 				462CE62E21B16AC500505D65 /* RepositoryTableViewCell.xib in Resources */,
 				462CE62421B1509700505D65 /* RepositoriesListViewController.xib in Resources */,
 				462CE60E21B14EE000505D65 /* Assets.xcassets in Resources */,
@@ -466,8 +487,11 @@
 				462CE65121B19ED400505D65 /* RespositoriesListWireframe.swift in Sources */,
 				462CE65D21B1D54B00505D65 /* UIView+RoundedCorners.swift in Sources */,
 				462CE62321B1509700505D65 /* RepositoriesListViewController.swift in Sources */,
+				462CE66F21B1EF0400505D65 /* GitEmptyStateManager.swift in Sources */,
 				462CE66421B1D74B00505D65 /* BaseViewController.swift in Sources */,
 				462CE63E21B1949F00505D65 /* GitNetwork.swift in Sources */,
+				462CE66B21B1E67000505D65 /* GitEmptyStateView.swift in Sources */,
+				462CE66D21B1EB1400505D65 /* UIView+PinToEdges.swift in Sources */,
 				462CE66221B1D73F00505D65 /* GitColor.swift in Sources */,
 				462CE64021B194B300505D65 /* GitURLRequestConvertible.swift in Sources */,
 				462CE65F21B1D56300505D65 /* UIColor+hex.swift in Sources */,
