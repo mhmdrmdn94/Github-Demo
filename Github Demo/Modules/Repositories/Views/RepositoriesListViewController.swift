@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import ObjectMapper
 
 class RepositoriesListViewController: UIViewController {
 
@@ -77,11 +75,11 @@ extension RepositoriesListViewController: RespositoriesListViewProtocol {
     }
     
     func showLoader() {
-        //TODO:- show loader
+        Activity.showLoader()
     }
     
     func hideLoader() {
-        //TODO:- hide loader
+        Activity.hideLoader()
     }
     
     func showErrorMessage(_ message: String) {
