@@ -23,18 +23,32 @@ class RepositoriesListViewController: BaseViewController {
         setupView()
         presenter?.loadRepositories(usingSearchKey: "")
     }
+}
+
+fileprivate extension RepositoriesListViewController {
+    fileprivate func setupView() {
+        setupTableView()
+        setupTableViewInfiniteScrolling()
+        setupSearchController()
+        initNavbarButtons()
+    }
+    func initNavbarButtons() {
+        let logoutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "logout"), style: .plain, target: self, action:  #selector(logoutButtonTapped))
+        let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterButtonTapped))
+        navigationItem.rightBarButtonItems = [logoutButton, filterButton]
+    }
     
+    @objc func logoutButtonTapped(sender: UIBarButtonItem) {
+        print("Logout button tapped ..")
+    }
+    @objc func filterButtonTapped(sender: UIBarButtonItem) {
+        print("Filter button tapped ..")
+    }
 }
 
 fileprivate extension RepositoriesListViewController {
     var cells: [UITableViewCell.Type] {
         return [RepositoryTableViewCell.self]
-    }
-    
-    fileprivate func setupView() {
-        setupTableView()
-        setupTableViewInfiniteScrolling()
-        setupSearchController()
     }
     
     func setupTableView() {
@@ -54,7 +68,6 @@ fileprivate extension RepositoriesListViewController {
     }
     
     func setupTableViewInfiniteScrolling(){
-        
         self.tableView.addInfiniteScroll { [weak self] (tableView) in
             self?.presenter?.loadRepositories()
         }
@@ -101,7 +114,6 @@ fileprivate extension RepositoriesListViewController {
 }
 
 extension RepositoriesListViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    
     func updateSearchResults(for searchController: UISearchController) {
         if searchTimer != nil {
             searchTimer.invalidate()

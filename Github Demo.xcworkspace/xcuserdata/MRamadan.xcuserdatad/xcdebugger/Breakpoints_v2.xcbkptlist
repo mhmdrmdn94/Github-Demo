@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565311808.3995399"
+            timestampString = "565313175.310499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565311808.399942"
+            timestampString = "565313175.31108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "showEmptyState(with:)"
+            landmarkName = "searchForRepository()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565311808.400245"
+            timestampString = "565313175.311298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
