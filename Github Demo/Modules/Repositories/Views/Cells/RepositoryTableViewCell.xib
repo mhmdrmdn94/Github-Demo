@@ -36,25 +36,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpp-rc-tkj">
-                                <rect key="frame" x="8" y="80" width="428" height="110.5"/>
+                                <rect key="frame" x="8" y="80" width="428" height="106.5"/>
                                 <string key="text">Hello there, this repo is a demo for integration with GitHub-APIs. I made this on December 1st, 2019. Hello there, this repo is a demo for integration with GitHub-APIs. I made this on December 1st, 2019. </string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7P6-QE-7eN">
-                                <rect key="frame" x="8" y="202.5" width="428" height="20"/>
+                                <rect key="frame" x="8" y="198.5" width="428" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200 fork(s)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xZ-Nj-1OT">
                                         <rect key="frame" x="0.0" y="0.0" width="214" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.0" green="0.46648301926809166" blue="0.82477395304568524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="399 watcher(s)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FQ-mj-dco">
                                         <rect key="frame" x="214" y="0.0" width="214" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.0" green="0.46648301926809166" blue="0.82477395304568524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -69,7 +69,7 @@
                             <constraint firstItem="9gc-uX-QnO" firstAttribute="bottom" secondItem="HRc-z3-zMD" secondAttribute="bottom" id="2HL-l6-sms"/>
                             <constraint firstItem="7P6-QE-7eN" firstAttribute="leading" secondItem="QtX-ET-l1r" secondAttribute="leading" constant="8" id="43h-Xf-mhu"/>
                             <constraint firstAttribute="trailing" secondItem="9gc-uX-QnO" secondAttribute="trailing" constant="8" id="5TW-oi-Cg1"/>
-                            <constraint firstAttribute="bottom" secondItem="7P6-QE-7eN" secondAttribute="bottom" constant="8" id="8Hk-5g-Yim"/>
+                            <constraint firstAttribute="bottom" secondItem="7P6-QE-7eN" secondAttribute="bottom" constant="12" id="8Hk-5g-Yim"/>
                             <constraint firstItem="fpp-rc-tkj" firstAttribute="leading" secondItem="QtX-ET-l1r" secondAttribute="leading" constant="8" id="Bl2-Jt-bHr"/>
                             <constraint firstAttribute="trailing" secondItem="fpp-rc-tkj" secondAttribute="trailing" constant="8" id="FTn-5J-74p"/>
                             <constraint firstItem="7P6-QE-7eN" firstAttribute="top" secondItem="fpp-rc-tkj" secondAttribute="bottom" constant="12" id="Jwq-kY-LEk"/>
