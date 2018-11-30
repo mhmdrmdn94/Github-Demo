@@ -43,6 +43,7 @@ struct RepositoryTableViewCellViewModel {
 
 class RepositoryTableViewCell: UITableViewCell {
     
+    @IBOutlet weak fileprivate var containerView: UIView!
     @IBOutlet weak fileprivate var ownerAvatarImageView: UIImageView!
     @IBOutlet weak fileprivate var nameLabel: UILabel!
     @IBOutlet weak fileprivate var descriptionLabel: UILabel!
@@ -57,10 +58,21 @@ class RepositoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        setupView()
+    }
+    
+    private func setupView() {
+        numberOfForksLabel.textColor = GitColor.darkBlue.value
+        numberOfWatchersLabel.textColor = GitColor.darkBlue.value
+        containerView.roundCorners(withRadius: 10)
+        ownerAvatarImageView.roundCorners(withRadius: 10,
+                                          borderWidth: 1,
+                                          borderColor: .darkGray)
     }
     
     private func configure() {

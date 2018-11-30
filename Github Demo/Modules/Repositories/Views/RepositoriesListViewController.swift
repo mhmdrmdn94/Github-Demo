@@ -9,7 +9,7 @@
 import UIKit
 import UIScrollView_InfiniteScroll
 
-class RepositoriesListViewController: UIViewController {
+class RepositoriesListViewController: BaseViewController {
 
     @IBOutlet weak fileprivate var tableView: UITableView!
     
