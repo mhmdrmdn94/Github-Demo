@@ -22,16 +22,16 @@ class RepositoriesListViewController: UIViewController {
     
     //MARK:- just for testing endpoints
     func getDummyData() {
-        Alamofire.request("https://api.github.com/search/repositories?q=objectmapper&page=1")
-            .responseJSON { response in
-                if let responseJson = response.result.value as? [String:Any],
-                    let items = responseJson["items"] as? [[String:Any]] {
-                    let repositories = Mapper<Repository>().mapArray(JSONObject: items) ?? []
-                    print(repositories)
-                } else {
-                    print("Parsing error ...")
-                }
+        ReposService.search(keyword: "alamofire",
+                            page: 1,
+                            onSuccess: { (repositories) in
+                                print(repositories)
+        }) { (error) in
+            print(error.localizedDescription)
         }
+        
+        
+        
     }
     
 }

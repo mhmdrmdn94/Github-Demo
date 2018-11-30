@@ -20,6 +20,12 @@
 		462CE62E21B16AC500505D65 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 462CE62C21B16AC500505D65 /* RepositoryTableViewCell.xib */; };
 		462CE63621B185E800505D65 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE63521B185E800505D65 /* BaseModel.swift */; };
 		462CE63821B1862800505D65 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE63721B1862800505D65 /* Repository.swift */; };
+		462CE63A21B1924D00505D65 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE63921B1924D00505D65 /* Constants.swift */; };
+		462CE63C21B1948B00505D65 /* GitSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE63B21B1948B00505D65 /* GitSessionManager.swift */; };
+		462CE63E21B1949F00505D65 /* GitNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE63D21B1949F00505D65 /* GitNetwork.swift */; };
+		462CE64021B194B300505D65 /* GitURLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE63F21B194B300505D65 /* GitURLRequestConvertible.swift */; };
+		462CE64721B1971C00505D65 /* ReposRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE64621B1971C00505D65 /* ReposRouter.swift */; };
+		462CE64921B1972700505D65 /* ReposService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE64821B1972700505D65 /* ReposService.swift */; };
 		CF50FB397D62A94008174D16 /* Pods_Github_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1ED945368FE5AB64BC8462 /* Pods_Github_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +45,12 @@
 		462CE62C21B16AC500505D65 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		462CE63521B185E800505D65 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		462CE63721B1862800505D65 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		462CE63921B1924D00505D65 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		462CE63B21B1948B00505D65 /* GitSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitSessionManager.swift; sourceTree = "<group>"; };
+		462CE63D21B1949F00505D65 /* GitNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitNetwork.swift; sourceTree = "<group>"; };
+		462CE63F21B194B300505D65 /* GitURLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitURLRequestConvertible.swift; sourceTree = "<group>"; };
+		462CE64621B1971C00505D65 /* ReposRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposRouter.swift; sourceTree = "<group>"; };
+		462CE64821B1972700505D65 /* ReposService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposService.swift; sourceTree = "<group>"; };
 		9A1ED945368FE5AB64BC8462 /* Pods_Github_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Github_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B66D646BB392E3C215755C /* Pods-Github Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Demo/Pods-Github Demo.release.xcconfig"; sourceTree = "<group>"; };
 		DA2E1B4E42F6C1A674A69FE4 /* Pods-Github Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Demo/Pods-Github Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,8 +207,38 @@
 		462CE63421B185CE00505D65 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				462CE64121B196C400505D65 /* Base */,
+				462CE64221B196D200505D65 /* ModulesServices */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		462CE64121B196C400505D65 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				462CE63921B1924D00505D65 /* Constants.swift */,
+				462CE63D21B1949F00505D65 /* GitNetwork.swift */,
+				462CE63B21B1948B00505D65 /* GitSessionManager.swift */,
+				462CE63F21B194B300505D65 /* GitURLRequestConvertible.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		462CE64221B196D200505D65 /* ModulesServices */ = {
+			isa = PBXGroup;
+			children = (
+				462CE64321B196E700505D65 /* Repositories */,
+			);
+			path = ModulesServices;
+			sourceTree = "<group>";
+		};
+		462CE64321B196E700505D65 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				462CE64621B1971C00505D65 /* ReposRouter.swift */,
+				462CE64821B1972700505D65 /* ReposService.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		9E6E6838CFD1F1005FA7B8D4 /* Pods */ = {
@@ -318,6 +360,7 @@
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -326,6 +369,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -342,10 +386,16 @@
 				462CE63821B1862800505D65 /* Repository.swift in Sources */,
 				462CE63621B185E800505D65 /* BaseModel.swift in Sources */,
 				462CE62321B1509700505D65 /* RepositoriesListViewController.swift in Sources */,
+				462CE63E21B1949F00505D65 /* GitNetwork.swift in Sources */,
+				462CE64021B194B300505D65 /* GitURLRequestConvertible.swift in Sources */,
+				462CE63C21B1948B00505D65 /* GitSessionManager.swift in Sources */,
+				462CE64721B1971C00505D65 /* ReposRouter.swift in Sources */,
 				462CE62721B150AE00505D65 /* RepoDetailsViewController.swift in Sources */,
 				462CE61D21B14F7200505D65 /* LoginViewController.swift in Sources */,
 				462CE62D21B16AC500505D65 /* RepositoryTableViewCell.swift in Sources */,
 				462CE60721B14EDF00505D65 /* AppDelegate.swift in Sources */,
+				462CE64921B1972700505D65 /* ReposService.swift in Sources */,
+				462CE63A21B1924D00505D65 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

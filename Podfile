@@ -10,5 +10,6 @@ target 'Github Demo' do
   	pod 'ObjectMapper'
   	pod 'NVActivityIndicatorView'
   	pod 'SDWebImage'
+    pod 'SwiftyJSON'
 
 end
