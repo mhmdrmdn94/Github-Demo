@@ -7,16 +7,33 @@
 //
 
 import UIKit
+import Alamofire
+import ObjectMapper
 
 class RepositoriesListViewController: UIViewController {
 
-    
     @IBOutlet weak fileprivate var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        getDummyData()
     }
+    
+    //MARK:- just for testing endpoints
+    func getDummyData() {
+        Alamofire.request("https://api.github.com/search/repositories?q=objectmapper&page=1")
+            .responseJSON { response in
+                if let responseJson = response.result.value as? [String:Any],
+                    let items = responseJson["items"] as? [[String:Any]] {
+                    let repositories = Mapper<Repository>().mapArray(JSONObject: items) ?? []
+                    print(repositories)
+                } else {
+                    print("Parsing error ...")
+                }
+        }
+    }
+    
 }
 
 fileprivate extension RepositoriesListViewController {
