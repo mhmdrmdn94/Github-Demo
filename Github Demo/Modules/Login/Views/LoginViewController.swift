@@ -42,7 +42,9 @@ class LoginViewController: BaseViewController {
     
     fileprivate func openHomeViewController() {
         let reposListViewController = RespositoriesListBuilder().createRespositoriesListModule()
-        UIApplication.shared.keyWindow?.rootViewController = BaseNavigationController(rootViewController: reposListViewController)
+        let navigationController = BaseNavigationController(rootViewController: reposListViewController)
+        UIViewController.changeRootViewControllerWithAnimation(desinationViewController: navigationController)
+        //UIApplication.shared.keyWindow?.rootViewController = BaseNavigationController(rootViewController: reposListViewController)
     }
     
 }
