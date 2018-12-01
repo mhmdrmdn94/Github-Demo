@@ -69,10 +69,9 @@ class RepositoryTableViewCell: UITableViewCell {
     private func setupView() {
         numberOfForksLabel.textColor = GitColor.darkBlue.value
         numberOfWatchersLabel.textColor = GitColor.darkBlue.value
-        containerView.roundCorners(withRadius: 10)
-        ownerAvatarImageView.roundCorners(withRadius: 10,
-                                          borderWidth: 1,
-                                          borderColor: .darkGray)
+        [containerView, ownerAvatarImageView].forEach { (view) in
+            view?.roundCorners(withRadius: 10)
+        }
     }
     
     private func configure() {

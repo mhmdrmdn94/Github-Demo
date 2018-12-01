@@ -13,6 +13,7 @@ class RepoDetailsInteractor: RepoDetailsInteractorProtocol {
     
     fileprivate var repository: Repository
     fileprivate var forks = [Fork]()
+    fileprivate var currentPage = 1
     
     init(repository: Repository) {
         self.repository = repository
@@ -23,14 +24,39 @@ class RepoDetailsInteractor: RepoDetailsInteractorProtocol {
     }
     
     func loadForks() {
-        let f1 = Fork()
-        f1.ownerLogin = "Omar Alaa"
-        let f2 = Fork()
-        f2.ownerLogin = "Mo Ramadan"
-        let f3 = Fork()
-        f3.ownerLogin = "Hassan Gharib El-Sayed"
-        self.forks = [f1, f2, f3]
-        presenter?.didLoadForks()
+        guard let ownerName = repository.ownerLogin,
+            let repoName = repository.name, !ownerName.isEmpty, !repoName.isEmpty else {
+                presenter?.showEmptyState(with: .someThingWentWrong)
+                return
+        }
+        
+        if repository.numberOfForks == nil {
+            presenter?.showEmptyState(with: .noResults)
+            return
+        }
+        
+        ForksService.getForks(forRepo: repoName,
+                              forOwner: ownerName,
+                              page: currentPage,
+                              onSuccess: { [weak self] (newForks) in
+                                guard let strongSelf = self else {
+                                    self?.presenter?.showEmptyState(with: .someThingWentWrong)
+                                    return
+                                }
+                                
+                                strongSelf.forks.append(contentsOf: newForks)
+                                strongSelf.currentPage = strongSelf.currentPage + 1
+                                strongSelf.presenter?.didLoadForks()
+        }) { [weak self] (error) in
+            let nserror = error as NSError
+            if nserror.code == 1009 {
+                self?.presenter?.showEmptyState(with: .noInternetConnection)
+            } else {
+                self?.presenter?.showEmptyState(with: .someThingWentWrong)
+            }
+        }
+        
+        
     }
     
     func getRepositoryViewModel() -> RepositoryViewModel {

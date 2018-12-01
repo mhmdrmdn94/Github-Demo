@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIScrollView_InfiniteScroll
 
 class RepoDetailsViewController: BaseViewController {
 
@@ -65,6 +66,7 @@ fileprivate extension RepoDetailsViewController {
         forksTableView.estimatedRowHeight = 200
         forksTableView.rowHeight = UITableViewAutomaticDimension
         registerCells()
+        setupTableViewInfiniteScrolling()
     }
     
     func registerCells() {
@@ -75,15 +77,15 @@ fileprivate extension RepoDetailsViewController {
         }
     }
     
-//    func setupTableViewInfiniteScrolling(){
-//        self.tableView.addInfiniteScroll { [weak self] (tableView) in
-//            self?.presenter?.loadRepositories()
-//        }
-//
-//        self.tableView.setShouldShowInfiniteScrollHandler { (tableView) -> Bool in
-//            return true     //cuz no last-page indicator in gethub response!
-//        }
-//    }
+    func setupTableViewInfiniteScrolling(){
+        self.forksTableView.addInfiniteScroll { [weak self] (tableView) in
+            self?.presenter?.loadForks()
+        }
+
+        self.forksTableView.setShouldShowInfiniteScrollHandler { (tableView) -> Bool in
+            return true     //cuz no last-page indicator in gethub response!
+        }
+    }
 }
 
 extension RepoDetailsViewController: UITableViewDelegate, UITableViewDataSource {

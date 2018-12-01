@@ -19,7 +19,8 @@ struct ForkViewModel {
     
     var forkNumberString: String? {
         if let indexPath = indexPath {
-            return "fork #" + indexPath.row.description
+            let index = indexPath.row + 1   //cuz tableView index startt's with 0
+            return "fork #" + index.description
         }
         return nil
     }
