@@ -20,7 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565359137.8277349"
+            timestampString = "565359905.916302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565359137.828102"
+            timestampString = "565359905.916683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565359137.8288471"
+            timestampString = "565359905.91695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565359137.829078"
+            timestampString = "565359905.91702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Presenters/RespositoriesListPresenter.swift"
-            timestampString = "565359137.829286"
+            timestampString = "565359905.9170851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -100,12 +100,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565359137.829335"
+            timestampString = "565359905.917325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "loadRepositories(usingSearchKey:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Github Demo/Modules/Repository Details/Views/RepoDetailsViewController.swift"
+            timestampString = "565359905.9173909"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "setupTableViewInfiniteScrolling()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

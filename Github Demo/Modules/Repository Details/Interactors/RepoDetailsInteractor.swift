@@ -30,7 +30,7 @@ class RepoDetailsInteractor: RepoDetailsInteractorProtocol {
                 return
         }
         
-        if repository.numberOfForks == nil {
+        if let forksCount = repository.numberOfForks, forksCount == 0 {
             presenter?.showEmptyState(with: .noResults)
             return
         }

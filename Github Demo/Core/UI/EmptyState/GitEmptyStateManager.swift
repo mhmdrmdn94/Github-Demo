@@ -36,7 +36,7 @@ enum GitEmptyStateType {
     private var descriptionContent: String? {
         switch self {
         case .noResults:
-            return "Sorry! we did not find any repositories matching this search keyword."
+            return "Sorry! we did not find any repositories matching this criteria."
         case .noInternetConnection:
             return "It's seems like you're not connected to the internet! Please try again later."
         case .someThingWentWrong:
