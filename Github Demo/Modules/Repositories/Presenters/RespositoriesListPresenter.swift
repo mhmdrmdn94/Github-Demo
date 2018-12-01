@@ -22,7 +22,6 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
     }
     
     func loadRepositories(usingSearchKey keyword: String) {
-        view?.showLoader()
         interactor.loadRepositories(usingSearchKey: keyword)
     }
     
@@ -35,7 +34,7 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
         return count
     }
     
-    func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel {
+    func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel {
         let viewModel = interactor.getViewModel(at: indexPath)
         return viewModel
     }
@@ -46,7 +45,9 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
     }
     
     func performSelectionActionForRepo(at indexPath: IndexPath) {
-        //TODO:- open details
+        guard let view = view else { return }
+        let repository = interactor.getModel(at: indexPath)
+        wireframe.pushRepoDetailsViewController(from: view, using: repository)
     }
     
     func performLogout() {
@@ -55,18 +56,11 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
 }
 
 extension RespositoriesListPresenter: RespositoriesListInteractorOutputProtocol {
-    func showEmptyState(with viewModel: GitEmptyStateViewModel) {
-        view?.hideLoader()
-        view?.showEmptyState(with: viewModel)
+    func showEmptyState(with type: GitEmptyStateType) {
+        view?.showEmptyState(with: type)
     }
     
     func didLoadRepositories() {
-        view?.hideLoader()
         view?.reloadRepositories()
-    }
-    
-    func onError(_ error: Error) {
-       view?.hideLoader()
-        view?.showErrorMessage(error.localizedDescription)
     }
 }

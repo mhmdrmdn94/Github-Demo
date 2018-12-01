@@ -96,7 +96,7 @@ extension RepositoriesListViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row #\( indexPath.row ) is selected.")
+        presenter?.performSelectionActionForRepo(at: indexPath)
     }
 }
 
@@ -135,9 +135,9 @@ extension RepositoriesListViewController: UISearchResultsUpdating, UISearchBarDe
 }
 
 extension RepositoriesListViewController: RespositoriesListViewProtocol {
-    func showEmptyState(with viewModel: GitEmptyStateViewModel) {
+    func showEmptyState(with type: GitEmptyStateType) {
         tableView.reloadData()
-        emptyStateView.viewModel = viewModel
+        emptyStateView.type = type
         emptyStateView.delegate = self
         tableView.backgroundView = emptyStateView
     }
@@ -145,18 +145,6 @@ extension RepositoriesListViewController: RespositoriesListViewProtocol {
     func reloadRepositories() {
         tableView.backgroundView = nil
         tableView.reloadData()
-    }
-    
-    func showLoader() {
-        Activity.showLoader()
-    }
-    
-    func hideLoader() {
-        Activity.hideLoader()
-    }
-    
-    func showErrorMessage(_ message: String) {
-        Alert.show(message: message)
     }
 }
 

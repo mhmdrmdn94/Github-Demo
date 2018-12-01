@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-struct RepositoryTableViewCellViewModel {
+struct RepositoryViewModel {
     var name: String
     var ownerAvatar: URL?
     var description: String
@@ -50,7 +50,7 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak fileprivate var numberOfForksLabel: UILabel!
     @IBOutlet weak fileprivate var numberOfWatchersLabel: UILabel!
     
-    var viewModel: RepositoryTableViewCellViewModel? {
+    var viewModel: RepositoryViewModel? {
         didSet {
             configure()
         }
@@ -69,10 +69,9 @@ class RepositoryTableViewCell: UITableViewCell {
     private func setupView() {
         numberOfForksLabel.textColor = GitColor.darkBlue.value
         numberOfWatchersLabel.textColor = GitColor.darkBlue.value
-        containerView.roundCorners(withRadius: 10)
-        ownerAvatarImageView.roundCorners(withRadius: 10,
-                                          borderWidth: 1,
-                                          borderColor: .darkGray)
+        [containerView, ownerAvatarImageView].forEach { (view) in
+            view?.roundCorners(withRadius: 10)
+        }
     }
     
     private func configure() {

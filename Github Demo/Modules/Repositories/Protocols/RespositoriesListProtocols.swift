@@ -13,10 +13,7 @@ protocol RespositoriesListViewProtocol: class {
     var presenter: RespositoriesListPresenterProtocol? { get set }
     
     func reloadRepositories()
-    func showLoader()
-    func hideLoader()
-    func showEmptyState(with viewModel: GitEmptyStateViewModel)
-    func showErrorMessage(_ message: String)
+    func showEmptyState(with type: GitEmptyStateType)
 }
 
 protocol RespositoriesListPresenterProtocol: class {
@@ -27,7 +24,7 @@ protocol RespositoriesListPresenterProtocol: class {
     func loadRepositories(usingSearchKey keyword: String)
     func loadRepositories()
     func getRepositoriesCount() -> Int
-    func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel
+    func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel
     func getModel(at indexPath: IndexPath) -> Repository
     func performSelectionActionForRepo(at indexPath: IndexPath)
     func performLogout()
@@ -35,8 +32,7 @@ protocol RespositoriesListPresenterProtocol: class {
 
 protocol RespositoriesListInteractorOutputProtocol: class {
     func didLoadRepositories()
-    func showEmptyState(with viewModel: GitEmptyStateViewModel)
-    func onError(_ error: Error)
+    func showEmptyState(with type: GitEmptyStateType)
 }
 
 protocol RespositoriesListInteractorProtocol: class {
@@ -45,13 +41,14 @@ protocol RespositoriesListInteractorProtocol: class {
     func loadRepositories(usingSearchKey keyword: String)
     func loadRepositories()
     func getRepositoriesCount() -> Int
-    func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel
+    func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel
     func getModel(at indexPath: IndexPath) -> Repository
     func performLogout()
 }
 
 protocol RespositoriesListWireframeProtocol: class {
-    func pushRepoDetailsViewController(from view: RespositoriesListViewProtocol)
+    func pushRepoDetailsViewController(from view: RespositoriesListViewProtocol,
+                                       using repository: Repository)
 }
 
 protocol RespositoriesListBuilderProtocol: class {

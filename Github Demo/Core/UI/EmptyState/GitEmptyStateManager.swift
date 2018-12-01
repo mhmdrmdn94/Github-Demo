@@ -14,11 +14,12 @@ enum GitEmptyStateType {
     case noInternetConnection
     case someThingWentWrong
     case noSearchKeywordLogged
+    case loading
     
     private var avatarImage: UIImage {
         return #imageLiteral(resourceName: "Octocat")
     }
-    private var title: String {
+    private var title: String? {
         switch self {
         case .noResults:
             return "No Results!"
@@ -28,18 +29,22 @@ enum GitEmptyStateType {
             return "Something went wrong!"
         case .noSearchKeywordLogged:
             return "No search keyword!"
+        case .loading:
+            return nil
         }
     }
-    private var descriptionContent: String {
+    private var descriptionContent: String? {
         switch self {
         case .noResults:
-            return "Sorry! we did not find any repositories matching this search keyword."
+            return "Sorry! we did not find any repositories matching this criteria."
         case .noInternetConnection:
             return "It's seems like you're not connected to the internet! Please try again later."
         case .someThingWentWrong:
             return "Opps! something went wrong! Please try again later"
         case .noSearchKeywordLogged:
             return "Sorry! you have to enter a search keyword."
+        case .loading:
+            return nil
         }
     }
     private var actionButtonTitle: String? {
@@ -51,6 +56,8 @@ enum GitEmptyStateType {
         case .someThingWentWrong:
             return "Try again"
         case .noSearchKeywordLogged:
+            return nil
+        case .loading:
             return nil
         }
     }

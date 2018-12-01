@@ -10,10 +10,12 @@ import Foundation
 import UIKit
 
 class RespositoriesListWireframe: RespositoriesListWireframeProtocol {
-    func pushRepoDetailsViewController(from view: RespositoriesListViewProtocol) {
+    func pushRepoDetailsViewController(from view: RespositoriesListViewProtocol,
+                                       using repository: Repository) {
         guard let sourceView = view as? UIViewController else { return }
+        let detailsViewController = RepoDetailsBuilder().createRespositoryDetailsModule(using: repository)
         sourceView.navigationController?
-            .pushViewController(RepoDetailsViewController(), animated: true)
+            .pushViewController(detailsViewController, animated: true)
     }
     
     

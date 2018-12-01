@@ -35,4 +35,24 @@ class Repository: BaseModel {
             ownerAvatar =  ownerJson["avatar_url"] as? String
         }
     }
+    
+    func getRepositoryViewModel() -> RepositoryViewModel {
+        let name = self.name ?? "Name N/A"
+        let description = self.repoDescription ?? "Description N/A"
+        let forks = self.numberOfForks ?? 0
+        let watchers = self.numberOfWatchers ?? 0
+        var avatarUrl: URL? = nil
+        if let urlString = self.ownerAvatar,
+            let url = URL(string: urlString) {
+            avatarUrl = url
+        }
+        
+        let viewModel = RepositoryViewModel(name: name,
+                                            ownerAvatar: avatarUrl,
+                                            description: description,
+                                            numberOfForks: forks,
+                                            numberOfWatchers: watchers)
+        return viewModel
+    }
+    
 }

@@ -49,7 +49,7 @@ fileprivate extension AppDelegate {
     func initWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
         let loginViewController = LoginViewController()
-        self.window?.rootViewController = BaseNavigationController(rootViewController: loginViewController)
+        self.window?.rootViewController = loginViewController
         window!.makeKeyAndVisible()
     }
 }
