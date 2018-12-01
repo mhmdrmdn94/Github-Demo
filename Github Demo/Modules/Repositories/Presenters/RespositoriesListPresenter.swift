@@ -22,7 +22,6 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
     }
     
     func loadRepositories(usingSearchKey keyword: String) {
-        view?.showLoader()
         interactor.loadRepositories(usingSearchKey: keyword)
     }
     
@@ -57,18 +56,11 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
 }
 
 extension RespositoriesListPresenter: RespositoriesListInteractorOutputProtocol {
-    func showEmptyState(with viewModel: GitEmptyStateViewModel) {
-        view?.hideLoader()
-        view?.showEmptyState(with: viewModel)
+    func showEmptyState(with type: GitEmptyStateType) {
+        view?.showEmptyState(with: type)
     }
     
     func didLoadRepositories() {
-        view?.hideLoader()
         view?.reloadRepositories()
-    }
-    
-    func onError(_ error: Error) {
-       view?.hideLoader()
-        view?.showErrorMessage(error.localizedDescription)
     }
 }

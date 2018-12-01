@@ -13,10 +13,7 @@ protocol RespositoriesListViewProtocol: class {
     var presenter: RespositoriesListPresenterProtocol? { get set }
     
     func reloadRepositories()
-    func showLoader()
-    func hideLoader()
-    func showEmptyState(with viewModel: GitEmptyStateViewModel)
-    func showErrorMessage(_ message: String)
+    func showEmptyState(with type: GitEmptyStateType)
 }
 
 protocol RespositoriesListPresenterProtocol: class {
@@ -35,8 +32,7 @@ protocol RespositoriesListPresenterProtocol: class {
 
 protocol RespositoriesListInteractorOutputProtocol: class {
     func didLoadRepositories()
-    func showEmptyState(with viewModel: GitEmptyStateViewModel)
-    func onError(_ error: Error)
+    func showEmptyState(with type: GitEmptyStateType)
 }
 
 protocol RespositoriesListInteractorProtocol: class {

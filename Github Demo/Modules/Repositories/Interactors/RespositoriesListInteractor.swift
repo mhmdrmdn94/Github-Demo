@@ -26,7 +26,7 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
             showEmptyState(withType: .noSearchKeywordLogged)
             return
         }
-        
+        presenter?.showEmptyState(with: .loading)
         fetchRepositories()
     }
     
@@ -89,8 +89,7 @@ fileprivate extension RespositoriesListInteractor {
     }
     
     func showEmptyState(withType type: GitEmptyStateType) {
-        let emptyStateViewModel = type.viewModel
-        presenter?.showEmptyState(with: emptyStateViewModel)
+        presenter?.showEmptyState(with: type)
     }
     
 }

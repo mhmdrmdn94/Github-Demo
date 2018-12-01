@@ -117,11 +117,21 @@ extension RepoDetailsViewController: RepoDetailsViewProtocol {
     }
     
     func reloadForksList() {
+        forksTableView.backgroundView = nil
         forksTableView.reloadData()
     }
     
     func showForksEmptyState(with type: GitEmptyStateType) {
-        
+        let emptyStateView = GitEmptyStateView()
+        emptyStateView.delegate = self
+        emptyStateView.type = type
+        forksTableView.backgroundView = emptyStateView
     }
     
+}
+
+extension RepoDetailsViewController: GitEmptyStateViewDelegate {
+    func didTapActionButton() {
+        presenter?.loadForks()
+    }
 }
