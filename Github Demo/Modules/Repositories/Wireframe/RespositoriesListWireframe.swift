@@ -13,8 +13,7 @@ class RespositoriesListWireframe: RespositoriesListWireframeProtocol {
     func pushRepoDetailsViewController(from view: RespositoriesListViewProtocol,
                                        using repository: Repository) {
         guard let sourceView = view as? UIViewController else { return }
-        let detailsViewController = RepoDetailsViewController()
-        detailsViewController.repository = repository
+        let detailsViewController = RepoDetailsBuilder().createRespositoryDetailsModule(using: repository)
         sourceView.navigationController?
             .pushViewController(detailsViewController, animated: true)
     }

@@ -39,9 +39,9 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
         return count
     }
     
-    func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel {
+    func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel {
         let repository = repositories[indexPath.row]
-        let viewModel = constuctRepositoryViewModelFrom(repository)
+        let viewModel = repository.getRepositoryViewModel()
         return viewModel
     }
     
@@ -93,22 +93,4 @@ fileprivate extension RespositoriesListInteractor {
         presenter?.showEmptyState(with: emptyStateViewModel)
     }
     
-    func constuctRepositoryViewModelFrom(_ repository: Repository) -> RepositoryTableViewCellViewModel {
-        let name = repository.name ?? "Name N/A"
-        let description = repository.repoDescription ?? "Description N/A"
-        let forks = repository.numberOfForks ?? 0
-        let watchers = repository.numberOfWatchers ?? 0
-        var avatarUrl: URL? = nil
-        if let urlString = repository.ownerAvatar,
-            let url = URL(string: urlString) {
-            avatarUrl = url
-        }
-        
-        let viewModel = RepositoryTableViewCellViewModel(name: name,
-                                                         ownerAvatar: avatarUrl,
-                                                         description: description,
-                                                         numberOfForks: forks,
-                                                         numberOfWatchers: watchers)
-        return viewModel
-    }
 }

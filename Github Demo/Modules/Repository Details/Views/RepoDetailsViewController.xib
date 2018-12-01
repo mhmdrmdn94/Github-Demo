@@ -90,22 +90,22 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jha-No-jbQ">
-                            <rect key="frame" x="0.0" y="181.5" width="375" height="465.5"/>
+                            <rect key="frame" x="8" y="181.5" width="359" height="465.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.81119793653488159" green="0.81119793653488159" blue="0.81119793653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Jha-No-jbQ" firstAttribute="top" secondItem="DBd-kP-tVa" secondAttribute="bottom" constant="8" id="0kS-wQ-W5i"/>
                         <constraint firstItem="DBd-kP-tVa" firstAttribute="leading" secondItem="K7D-ia-RSP" secondAttribute="leading" constant="8" id="25V-a0-Cwb"/>
                         <constraint firstItem="DBd-kP-tVa" firstAttribute="top" secondItem="QYd-e5-dIa" secondAttribute="bottom" constant="8" id="ANh-Om-8UI"/>
-                        <constraint firstItem="Jha-No-jbQ" firstAttribute="leading" secondItem="K7D-ia-RSP" secondAttribute="leading" id="BSU-AY-AoI"/>
+                        <constraint firstItem="Jha-No-jbQ" firstAttribute="leading" secondItem="K7D-ia-RSP" secondAttribute="leading" constant="8" id="BSU-AY-AoI"/>
                         <constraint firstAttribute="trailing" secondItem="QYd-e5-dIa" secondAttribute="trailing" constant="8" id="V9s-9D-MLx"/>
                         <constraint firstItem="QYd-e5-dIa" firstAttribute="top" secondItem="K7D-ia-RSP" secondAttribute="top" constant="8" id="VXb-cf-Ms4"/>
                         <constraint firstItem="QYd-e5-dIa" firstAttribute="leading" secondItem="K7D-ia-RSP" secondAttribute="leading" constant="8" id="bjZ-P0-wSS"/>
                         <constraint firstAttribute="bottom" secondItem="Jha-No-jbQ" secondAttribute="bottom" id="iAq-RH-btt"/>
                         <constraint firstAttribute="trailing" secondItem="DBd-kP-tVa" secondAttribute="trailing" constant="8" id="iTa-qX-Eyz"/>
-                        <constraint firstAttribute="trailing" secondItem="Jha-No-jbQ" secondAttribute="trailing" id="mvV-Pl-d2p"/>
+                        <constraint firstAttribute="trailing" secondItem="Jha-No-jbQ" secondAttribute="trailing" constant="8" id="mvV-Pl-d2p"/>
                     </constraints>
                 </view>
             </subviews>

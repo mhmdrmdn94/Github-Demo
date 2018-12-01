@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-struct RepositoryTableViewCellViewModel {
+struct RepositoryViewModel {
     var name: String
     var ownerAvatar: URL?
     var description: String
@@ -50,7 +50,7 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak fileprivate var numberOfForksLabel: UILabel!
     @IBOutlet weak fileprivate var numberOfWatchersLabel: UILabel!
     
-    var viewModel: RepositoryTableViewCellViewModel? {
+    var viewModel: RepositoryViewModel? {
         didSet {
             configure()
         }

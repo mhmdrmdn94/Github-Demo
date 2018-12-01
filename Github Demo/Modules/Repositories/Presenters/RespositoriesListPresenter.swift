@@ -35,7 +35,7 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
         return count
     }
     
-    func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel {
+    func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel {
         let viewModel = interactor.getViewModel(at: indexPath)
         return viewModel
     }

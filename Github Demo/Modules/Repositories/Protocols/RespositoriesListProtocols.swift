@@ -27,7 +27,7 @@ protocol RespositoriesListPresenterProtocol: class {
     func loadRepositories(usingSearchKey keyword: String)
     func loadRepositories()
     func getRepositoriesCount() -> Int
-    func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel
+    func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel
     func getModel(at indexPath: IndexPath) -> Repository
     func performSelectionActionForRepo(at indexPath: IndexPath)
     func performLogout()
@@ -45,7 +45,7 @@ protocol RespositoriesListInteractorProtocol: class {
     func loadRepositories(usingSearchKey keyword: String)
     func loadRepositories()
     func getRepositoriesCount() -> Int
-    func getViewModel(at indexPath: IndexPath) -> RepositoryTableViewCellViewModel
+    func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel
     func getModel(at indexPath: IndexPath) -> Repository
     func performLogout()
 }

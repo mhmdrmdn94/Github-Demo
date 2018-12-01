@@ -18,38 +18,44 @@ class RepoDetailsViewController: BaseViewController {
     @IBOutlet weak fileprivate var numberOfForksLabel: UILabel!
     @IBOutlet weak fileprivate var numberOfWatchersLabel: UILabel!
     
-    var repository: Repository?
+    var presenter: RepoDetailsPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupView()
+        presenter?.loadRepositoryDetails()
+        presenter?.loadForks()
     }
     
     func setupView() {
         topContainerView.roundCorners(withRadius: 10)
         bottomContainerView.roundCorners(withRadius: 10)
+        forksTableView.roundCorners(withRadius: 10)
         numberOfForksLabel.textColor = GitColor.darkBlue.value
         numberOfWatchersLabel.textColor = GitColor.darkBlue.value
         navigationController?.navigationBar.prefersLargeTitles = true
         UINavigationBar.appearance().largeTitleTextAttributes =
             [NSAttributedStringKey.foregroundColor: GitColor.darkBlue.value]
-        
-        navigationItem.title = repository?.name ?? "Name N/A"
-        descriptionLabel.text = repository?.repoDescription ?? "Description N/A"
-        numberOfWatchersLabel.text = repository?.numberOfWatchers?.description ?? "0 watcher"
-        numberOfForksLabel.text = repository?.numberOfForks?.description ?? "0 fork"
-        let url = URL(string: (repository?.ownerAvatar)!)
-        avatarImageView.sd_setImage(with: url!,
-                                         placeholderImage: #imageLiteral(resourceName: "Octocat"),
-                                         completed: nil)
     }
     
+    func populateRepoDetails(with viewModel: RepositoryViewModel) {
+        navigationItem.title = viewModel.name
+        descriptionLabel.text = viewModel.description
+        numberOfWatchersLabel.text = viewModel.watchersString
+        numberOfForksLabel.text = viewModel.forksString
+        
+        if let url = viewModel.ownerAvatar {
+            avatarImageView.sd_setImage(with: url,
+                                        placeholderImage: #imageLiteral(resourceName: "Octocat"),
+                                        completed: nil)
+        }
+    }
 }
 
 fileprivate extension RepoDetailsViewController {
     var cells: [UITableViewCell.Type] {
-        return [UITableViewCell.self]
+        return [ForkTableViewCell.self]
     }
     
     func setupTableView() {
@@ -82,10 +88,37 @@ fileprivate extension RepoDetailsViewController {
 extension RepoDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return presenter?.getForksCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let presenter = presenter,
+            let cell  = tableView.dequeueReusableCell(withIdentifier: String(describing: ForkTableViewCell.self))
+                as? ForkTableViewCell else {
+                    return UITableViewCell()
+        }
+        
+        var viewModel = presenter.getForkViewModel(at: indexPath)
+        viewModel.indexPath = indexPath
+        cell.viewModel = viewModel
+        return cell
     }
+}
+
+extension RepoDetailsViewController: RepoDetailsViewProtocol {
+    
+    func showRepositoryDetails() {
+        if let viewModel = presenter?.getRepositoryViewModel() {
+            populateRepoDetails(with: viewModel)
+        }
+    }
+    
+    func reloadForksList() {
+        forksTableView.reloadData()
+    }
+    
+    func showForksEmptyState(with type: GitEmptyStateType) {
+        
+    }
+    
 }

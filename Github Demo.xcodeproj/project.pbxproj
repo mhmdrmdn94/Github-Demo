@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460D1A1721B27BBB0013F683 /* RepoDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A1621B27BBB0013F683 /* RepoDetailsPresenter.swift */; };
+		460D1A1921B27BC80013F683 /* RepoDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A1821B27BC80013F683 /* RepoDetailsInteractor.swift */; };
+		460D1A1B21B27BD90013F683 /* RepoDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A1A21B27BD90013F683 /* RepoDetailsProtocols.swift */; };
+		460D1A1F21B27DB70013F683 /* ForkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A1D21B27DB70013F683 /* ForkTableViewCell.swift */; };
+		460D1A2021B27DB70013F683 /* ForkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460D1A1E21B27DB70013F683 /* ForkTableViewCell.xib */; };
+		460D1A2221B27F1E0013F683 /* Fork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A2121B27F1E0013F683 /* Fork.swift */; };
+		460D1A2521B284980013F683 /* RepoDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A2421B284980013F683 /* RepoDetailsBuilder.swift */; };
 		462CE60721B14EDF00505D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE60621B14EDF00505D65 /* AppDelegate.swift */; };
 		462CE60E21B14EE000505D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 462CE60D21B14EE000505D65 /* Assets.xcassets */; };
 		462CE61121B14EE000505D65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462CE60F21B14EE000505D65 /* LaunchScreen.storyboard */; };
@@ -46,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		460D1A1621B27BBB0013F683 /* RepoDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsPresenter.swift; sourceTree = "<group>"; };
+		460D1A1821B27BC80013F683 /* RepoDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsInteractor.swift; sourceTree = "<group>"; };
+		460D1A1A21B27BD90013F683 /* RepoDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsProtocols.swift; sourceTree = "<group>"; };
+		460D1A1D21B27DB70013F683 /* ForkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkTableViewCell.swift; sourceTree = "<group>"; };
+		460D1A1E21B27DB70013F683 /* ForkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForkTableViewCell.xib; sourceTree = "<group>"; };
+		460D1A2121B27F1E0013F683 /* Fork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fork.swift; sourceTree = "<group>"; };
+		460D1A2421B284980013F683 /* RepoDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsBuilder.swift; sourceTree = "<group>"; };
 		462CE60321B14EDF00505D65 /* Github Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		462CE60621B14EDF00505D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		462CE60D21B14EE000505D65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +114,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		460D1A1221B27B7D0013F683 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A1C21B27DA40013F683 /* Cells */,
+				462CE62521B150AE00505D65 /* RepoDetailsViewController.swift */,
+				462CE62621B150AE00505D65 /* RepoDetailsViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		460D1A1321B27B840013F683 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A1621B27BBB0013F683 /* RepoDetailsPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		460D1A1421B27B8B0013F683 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A1821B27BC80013F683 /* RepoDetailsInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		460D1A1521B27B920013F683 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A1A21B27BD90013F683 /* RepoDetailsProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		460D1A1C21B27DA40013F683 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A1D21B27DB70013F683 /* ForkTableViewCell.swift */,
+				460D1A1E21B27DB70013F683 /* ForkTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		460D1A2321B284880013F683 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A2421B284980013F683 /* RepoDetailsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		462CE5FA21B14EDF00505D65 = {
 			isa = PBXGroup;
 			children = (
@@ -174,8 +239,11 @@
 		462CE62021B1507A00505D65 /* Repository Details */ = {
 			isa = PBXGroup;
 			children = (
-				462CE62521B150AE00505D65 /* RepoDetailsViewController.swift */,
-				462CE62621B150AE00505D65 /* RepoDetailsViewController.xib */,
+				460D1A2321B284880013F683 /* Builder */,
+				460D1A1521B27B920013F683 /* Protocols */,
+				460D1A1421B27B8B0013F683 /* Interactors */,
+				460D1A1321B27B840013F683 /* Presenters */,
+				460D1A1221B27B7D0013F683 /* Views */,
 			);
 			path = "Repository Details";
 			sourceTree = "<group>";
@@ -204,6 +272,7 @@
 			children = (
 				462CE63521B185E800505D65 /* BaseModel.swift */,
 				462CE63721B1862800505D65 /* Repository.swift */,
+				460D1A2121B27F1E0013F683 /* Fork.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -417,6 +486,7 @@
 				462CE61E21B14F7200505D65 /* LoginViewController.xib in Resources */,
 				462CE61121B14EE000505D65 /* LaunchScreen.storyboard in Resources */,
 				462CE62821B150AE00505D65 /* RepoDetailsViewController.xib in Resources */,
+				460D1A2021B27DB70013F683 /* ForkTableViewCell.xib in Resources */,
 				462CE66921B1E65E00505D65 /* GitEmptyStateView.xib in Resources */,
 				462CE62E21B16AC500505D65 /* RepositoryTableViewCell.xib in Resources */,
 				462CE62421B1509700505D65 /* RepositoriesListViewController.xib in Resources */,
@@ -483,10 +553,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				462CE63821B1862800505D65 /* Repository.swift in Sources */,
+				460D1A1721B27BBB0013F683 /* RepoDetailsPresenter.swift in Sources */,
 				462CE63621B185E800505D65 /* BaseModel.swift in Sources */,
+				460D1A1B21B27BD90013F683 /* RepoDetailsProtocols.swift in Sources */,
 				462CE65121B19ED400505D65 /* RespositoriesListWireframe.swift in Sources */,
 				462CE65D21B1D54B00505D65 /* UIView+RoundedCorners.swift in Sources */,
+				460D1A2521B284980013F683 /* RepoDetailsBuilder.swift in Sources */,
 				462CE62321B1509700505D65 /* RepositoriesListViewController.swift in Sources */,
+				460D1A1F21B27DB70013F683 /* ForkTableViewCell.swift in Sources */,
+				460D1A2221B27F1E0013F683 /* Fork.swift in Sources */,
 				462CE66F21B1EF0400505D65 /* GitEmptyStateManager.swift in Sources */,
 				462CE66421B1D74B00505D65 /* BaseViewController.swift in Sources */,
 				462CE63E21B1949F00505D65 /* GitNetwork.swift in Sources */,
@@ -498,6 +573,7 @@
 				462CE65921B1CEDC00505D65 /* ActivityLoader.swift in Sources */,
 				462CE63C21B1948B00505D65 /* GitSessionManager.swift in Sources */,
 				462CE64721B1971C00505D65 /* ReposRouter.swift in Sources */,
+				460D1A1921B27BC80013F683 /* RepoDetailsInteractor.swift in Sources */,
 				462CE62721B150AE00505D65 /* RepoDetailsViewController.swift in Sources */,
 				462CE65721B1B23200505D65 /* RespositoriesListBuilder.swift in Sources */,
 				462CE61D21B14F7200505D65 /* LoginViewController.swift in Sources */,
