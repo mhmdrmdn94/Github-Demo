@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYd-e5-dIa">
-                            <rect key="frame" x="8" y="8" width="359" height="117.5"/>
+                            <rect key="frame" x="8" y="8" width="359" height="128"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ip3-vG-NUh">
                                     <rect key="frame" x="8" y="8" width="90" height="90"/>
@@ -41,9 +41,15 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkk-r1-kis">
-                                    <rect key="frame" x="106" y="8" width="245" height="101.5"/>
+                                    <rect key="frame" x="106" y="8" width="245" height="112"/>
                                     <string key="text">This is a short description for my Github Repo. what do you think? ha?  I am sure that this library will help you to analys you code more efficiently.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-Owner-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W84-PJ-jGT">
+                                    <rect key="frame" x="29.5" y="102" width="48" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -51,16 +57,18 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Rkk-r1-kis" firstAttribute="leading" secondItem="Ip3-vG-NUh" secondAttribute="trailing" constant="8" id="51a-vu-GBX"/>
+                                <constraint firstItem="W84-PJ-jGT" firstAttribute="top" secondItem="Ip3-vG-NUh" secondAttribute="bottom" constant="4" id="8BN-an-Rok"/>
                                 <constraint firstItem="Ip3-vG-NUh" firstAttribute="top" secondItem="QYd-e5-dIa" secondAttribute="top" constant="8" id="FRP-gH-Vhc"/>
                                 <constraint firstAttribute="bottom" secondItem="Rkk-r1-kis" secondAttribute="bottom" constant="8" id="Gs6-DG-Kgq"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ip3-vG-NUh" secondAttribute="bottom" constant="8" id="L1o-CY-Hpi"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ip3-vG-NUh" secondAttribute="bottom" constant="30" id="L1o-CY-Hpi"/>
                                 <constraint firstItem="Ip3-vG-NUh" firstAttribute="leading" secondItem="QYd-e5-dIa" secondAttribute="leading" constant="8" id="VCv-2p-IZz"/>
                                 <constraint firstAttribute="trailing" secondItem="Rkk-r1-kis" secondAttribute="trailing" constant="8" id="WME-qe-u70"/>
                                 <constraint firstItem="Rkk-r1-kis" firstAttribute="top" secondItem="QYd-e5-dIa" secondAttribute="top" constant="8" id="bxO-CB-9nV"/>
+                                <constraint firstItem="W84-PJ-jGT" firstAttribute="centerX" secondItem="Ip3-vG-NUh" secondAttribute="centerX" id="qfm-tS-omt"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBd-kP-tVa">
-                            <rect key="frame" x="8" y="133" width="359" height="40"/>
+                            <rect key="frame" x="8" y="143.5" width="359" height="40"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="que-I7-1Mb">
                                     <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
@@ -90,11 +98,11 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jha-No-jbQ">
-                            <rect key="frame" x="8" y="181.5" width="359" height="465.5"/>
+                            <rect key="frame" x="8" y="192" width="359" height="455"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" red="0.81119793653488159" green="0.81119793653488159" blue="0.81119793653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="Jha-No-jbQ" firstAttribute="top" secondItem="DBd-kP-tVa" secondAttribute="bottom" constant="8" id="0kS-wQ-W5i"/>
                         <constraint firstItem="DBd-kP-tVa" firstAttribute="leading" secondItem="K7D-ia-RSP" secondAttribute="leading" constant="8" id="25V-a0-Cwb"/>

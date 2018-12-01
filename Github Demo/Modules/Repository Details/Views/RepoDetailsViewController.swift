@@ -28,10 +28,11 @@ class RepoDetailsViewController: BaseViewController {
         presenter?.loadForks()
     }
     
-    func setupView() {
-        topContainerView.roundCorners(withRadius: 10)
-        bottomContainerView.roundCorners(withRadius: 10)
-        forksTableView.roundCorners(withRadius: 10)
+    private func setupView() {
+        [topContainerView, bottomContainerView, forksTableView, avatarImageView].forEach { (view) in
+            view?.roundCorners(withRadius: 10)
+        }
+        
         numberOfForksLabel.textColor = GitColor.darkBlue.value
         numberOfWatchersLabel.textColor = GitColor.darkBlue.value
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -39,7 +40,7 @@ class RepoDetailsViewController: BaseViewController {
             [NSAttributedStringKey.foregroundColor: GitColor.darkBlue.value]
     }
     
-    func populateRepoDetails(with viewModel: RepositoryViewModel) {
+    fileprivate func populateRepoDetails(with viewModel: RepositoryViewModel) {
         navigationItem.title = viewModel.name
         descriptionLabel.text = viewModel.description
         numberOfWatchersLabel.text = viewModel.watchersString
