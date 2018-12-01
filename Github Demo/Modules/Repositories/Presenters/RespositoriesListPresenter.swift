@@ -46,7 +46,9 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
     }
     
     func performSelectionActionForRepo(at indexPath: IndexPath) {
-        //TODO:- open details
+        guard let view = view else { return }
+        let repository = interactor.getModel(at: indexPath)
+        wireframe.pushRepoDetailsViewController(from: view, using: repository)
     }
     
     func performLogout() {

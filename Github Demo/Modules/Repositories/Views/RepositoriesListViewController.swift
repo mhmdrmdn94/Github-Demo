@@ -96,7 +96,7 @@ extension RepositoriesListViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row #\( indexPath.row ) is selected.")
+        presenter?.performSelectionActionForRepo(at: indexPath)
     }
 }
 

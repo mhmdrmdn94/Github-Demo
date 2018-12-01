@@ -51,7 +51,8 @@ protocol RespositoriesListInteractorProtocol: class {
 }
 
 protocol RespositoriesListWireframeProtocol: class {
-    func pushRepoDetailsViewController(from view: RespositoriesListViewProtocol)
+    func pushRepoDetailsViewController(from view: RespositoriesListViewProtocol,
+                                       using repository: Repository)
 }
 
 protocol RespositoriesListBuilderProtocol: class {
