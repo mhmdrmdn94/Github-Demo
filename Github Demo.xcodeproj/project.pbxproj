@@ -16,6 +16,16 @@
 		460D1A2521B284980013F683 /* RepoDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A2421B284980013F683 /* RepoDetailsBuilder.swift */; };
 		460D1A2821B295CB0013F683 /* ForksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A2721B295CB0013F683 /* ForksRouter.swift */; };
 		460D1A2A21B295D80013F683 /* ForksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A2921B295D80013F683 /* ForksService.swift */; };
+		460D1A2D21B2C30C0013F683 /* GitWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A2B21B2C30C0013F683 /* GitWebViewController.swift */; };
+		460D1A2E21B2C30C0013F683 /* GitWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460D1A2C21B2C30C0013F683 /* GitWebViewController.xib */; };
+		460D1A3021B2D0990013F683 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A2F21B2D0990013F683 /* UserSessionManager.swift */; };
+		460D1A3221B2D0F40013F683 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A3121B2D0F40013F683 /* UserDefaultsKeys.swift */; };
+		460D1A3421B2D9770013F683 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A3321B2D9770013F683 /* User.swift */; };
+		460D1A3921B2E2040013F683 /* GithubAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A3821B2E2040013F683 /* GithubAuthInteractor.swift */; };
+		460D1A3C21B2E49B0013F683 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A3B21B2E49A0013F683 /* UserRouter.swift */; };
+		460D1A3E21B2E4A60013F683 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A3D21B2E4A60013F683 /* UserService.swift */; };
+		460D1A4121B2EF670013F683 /* AccessTokenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A4021B2EF670013F683 /* AccessTokenRouter.swift */; };
+		460D1A4321B2EF740013F683 /* AccessTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A4221B2EF740013F683 /* AccessTokenService.swift */; };
 		462CE60721B14EDF00505D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE60621B14EDF00505D65 /* AppDelegate.swift */; };
 		462CE60E21B14EE000505D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 462CE60D21B14EE000505D65 /* Assets.xcassets */; };
 		462CE61121B14EE000505D65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462CE60F21B14EE000505D65 /* LaunchScreen.storyboard */; };
@@ -64,6 +74,16 @@
 		460D1A2421B284980013F683 /* RepoDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsBuilder.swift; sourceTree = "<group>"; };
 		460D1A2721B295CB0013F683 /* ForksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForksRouter.swift; sourceTree = "<group>"; };
 		460D1A2921B295D80013F683 /* ForksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForksService.swift; sourceTree = "<group>"; };
+		460D1A2B21B2C30C0013F683 /* GitWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitWebViewController.swift; sourceTree = "<group>"; };
+		460D1A2C21B2C30C0013F683 /* GitWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitWebViewController.xib; sourceTree = "<group>"; };
+		460D1A2F21B2D0990013F683 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
+		460D1A3121B2D0F40013F683 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		460D1A3321B2D9770013F683 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		460D1A3821B2E2040013F683 /* GithubAuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAuthInteractor.swift; sourceTree = "<group>"; };
+		460D1A3B21B2E49A0013F683 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		460D1A3D21B2E4A60013F683 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		460D1A4021B2EF670013F683 /* AccessTokenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRouter.swift; sourceTree = "<group>"; };
+		460D1A4221B2EF740013F683 /* AccessTokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenService.swift; sourceTree = "<group>"; };
 		462CE60321B14EDF00505D65 /* Github Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		462CE60621B14EDF00505D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		462CE60D21B14EE000505D65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +198,43 @@
 			path = Forks;
 			sourceTree = "<group>";
 		};
+		460D1A3521B2E1B20013F683 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				462CE61B21B14F7200505D65 /* LoginViewController.swift */,
+				462CE61C21B14F7200505D65 /* LoginViewController.xib */,
+				460D1A2B21B2C30C0013F683 /* GitWebViewController.swift */,
+				460D1A2C21B2C30C0013F683 /* GitWebViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		460D1A3721B2E1DC0013F683 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A3821B2E2040013F683 /* GithubAuthInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		460D1A3A21B2E4880013F683 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A3B21B2E49A0013F683 /* UserRouter.swift */,
+				460D1A3D21B2E4A60013F683 /* UserService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		460D1A3F21B2EF570013F683 /* AccessToken */ = {
+			isa = PBXGroup;
+			children = (
+				460D1A4021B2EF670013F683 /* AccessTokenRouter.swift */,
+				460D1A4221B2EF740013F683 /* AccessTokenService.swift */,
+			);
+			path = AccessToken;
+			sourceTree = "<group>";
+		};
 		462CE5FA21B14EDF00505D65 = {
 			isa = PBXGroup;
 			children = (
@@ -231,8 +288,8 @@
 		462CE61A21B14F5D00505D65 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				462CE61B21B14F7200505D65 /* LoginViewController.swift */,
-				462CE61C21B14F7200505D65 /* LoginViewController.xib */,
+				460D1A3721B2E1DC0013F683 /* Interactors */,
+				460D1A3521B2E1B20013F683 /* Views */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -286,6 +343,7 @@
 				462CE63521B185E800505D65 /* BaseModel.swift */,
 				462CE63721B1862800505D65 /* Repository.swift */,
 				460D1A2121B27F1E0013F683 /* Fork.swift */,
+				460D1A3321B2D9770013F683 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,6 +363,7 @@
 		462CE63121B185B600505D65 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				460D1A2F21B2D0990013F683 /* UserSessionManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -314,6 +373,7 @@
 			children = (
 				462CE65821B1CEDC00505D65 /* ActivityLoader.swift */,
 				462CE65A21B1CEF500505D65 /* Alert.swift */,
+				460D1A3121B2D0F40013F683 /* UserDefaultsKeys.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -351,6 +411,8 @@
 		462CE64221B196D200505D65 /* ModulesServices */ = {
 			isa = PBXGroup;
 			children = (
+				460D1A3F21B2EF570013F683 /* AccessToken */,
+				460D1A3A21B2E4880013F683 /* User */,
 				460D1A2621B295BA0013F683 /* Forks */,
 				462CE64321B196E700505D65 /* Repositories */,
 			);
@@ -497,6 +559,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460D1A2E21B2C30C0013F683 /* GitWebViewController.xib in Resources */,
 				462CE61E21B14F7200505D65 /* LoginViewController.xib in Resources */,
 				462CE61121B14EE000505D65 /* LaunchScreen.storyboard in Resources */,
 				462CE62821B150AE00505D65 /* RepoDetailsViewController.xib in Resources */,
@@ -567,6 +630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				462CE63821B1862800505D65 /* Repository.swift in Sources */,
+				460D1A4321B2EF740013F683 /* AccessTokenService.swift in Sources */,
 				460D1A1721B27BBB0013F683 /* RepoDetailsPresenter.swift in Sources */,
 				462CE63621B185E800505D65 /* BaseModel.swift in Sources */,
 				460D1A2A21B295D80013F683 /* ForksService.swift in Sources */,
@@ -576,6 +640,7 @@
 				460D1A2521B284980013F683 /* RepoDetailsBuilder.swift in Sources */,
 				462CE62321B1509700505D65 /* RepositoriesListViewController.swift in Sources */,
 				460D1A1F21B27DB70013F683 /* ForkTableViewCell.swift in Sources */,
+				460D1A2D21B2C30C0013F683 /* GitWebViewController.swift in Sources */,
 				460D1A2221B27F1E0013F683 /* Fork.swift in Sources */,
 				462CE66F21B1EF0400505D65 /* GitEmptyStateManager.swift in Sources */,
 				462CE66421B1D74B00505D65 /* BaseViewController.swift in Sources */,
@@ -583,6 +648,7 @@
 				462CE66B21B1E67000505D65 /* GitEmptyStateView.swift in Sources */,
 				462CE66D21B1EB1400505D65 /* UIView+PinToEdges.swift in Sources */,
 				462CE66221B1D73F00505D65 /* GitColor.swift in Sources */,
+				460D1A3E21B2E4A60013F683 /* UserService.swift in Sources */,
 				462CE64021B194B300505D65 /* GitURLRequestConvertible.swift in Sources */,
 				462CE65F21B1D56300505D65 /* UIColor+hex.swift in Sources */,
 				460D1A2821B295CB0013F683 /* ForksRouter.swift in Sources */,
@@ -590,17 +656,23 @@
 				462CE63C21B1948B00505D65 /* GitSessionManager.swift in Sources */,
 				462CE64721B1971C00505D65 /* ReposRouter.swift in Sources */,
 				460D1A1921B27BC80013F683 /* RepoDetailsInteractor.swift in Sources */,
+				460D1A3C21B2E49B0013F683 /* UserRouter.swift in Sources */,
 				462CE62721B150AE00505D65 /* RepoDetailsViewController.swift in Sources */,
 				462CE65721B1B23200505D65 /* RespositoriesListBuilder.swift in Sources */,
+				460D1A3021B2D0990013F683 /* UserSessionManager.swift in Sources */,
+				460D1A3421B2D9770013F683 /* User.swift in Sources */,
+				460D1A3221B2D0F40013F683 /* UserDefaultsKeys.swift in Sources */,
 				462CE61D21B14F7200505D65 /* LoginViewController.swift in Sources */,
 				462CE65321B19EE200505D65 /* RespositoriesListInteractor.swift in Sources */,
 				462CE62D21B16AC500505D65 /* RepositoryTableViewCell.swift in Sources */,
 				462CE65521B19EEC00505D65 /* RespositoriesListPresenter.swift in Sources */,
 				462CE60721B14EDF00505D65 /* AppDelegate.swift in Sources */,
 				462CE64921B1972700505D65 /* ReposService.swift in Sources */,
+				460D1A3921B2E2040013F683 /* GithubAuthInteractor.swift in Sources */,
 				462CE64F21B19EC100505D65 /* RespositoriesListProtocols.swift in Sources */,
 				462CE65B21B1CEF500505D65 /* Alert.swift in Sources */,
 				462CE66621B1D75900505D65 /* BaseNavigationController.swift in Sources */,
+				460D1A4121B2EF670013F683 /* AccessTokenRouter.swift in Sources */,
 				462CE63A21B1924D00505D65 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

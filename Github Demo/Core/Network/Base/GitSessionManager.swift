@@ -17,6 +17,11 @@ final class GitSessionManager: NSObject {
         if sessionManager == nil {
             sessionManager = SessionManager()
         }
+        
+        if let token = UserDefaults.standard.string(forKey: UserDefaultsKey.UserKeys.token.rawValue) {
+            sessionManager!.adapter = AccessTokenAdapter(token: token)
+        }
+        
         return sessionManager!
     }
     
@@ -27,5 +32,25 @@ final class GitSessionManager: NSObject {
     static func cancelAllRequests() {
         sessionManager?.session.invalidateAndCancel()
         sessionManager = nil
+    }
+}
+
+
+class AccessTokenAdapter: RequestAdapter {
+    private let token: String
+    
+    init(token: String) {
+        self.token = token
+    }
+    
+    func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
+        var urlRequest = urlRequest
+        
+        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(Constants.baseURL) {
+            urlRequest.setValue("token " + token, forHTTPHeaderField: "Authorization")
+        }
+        
+        debugPrint(urlRequest)
+        return urlRequest
     }
 }
