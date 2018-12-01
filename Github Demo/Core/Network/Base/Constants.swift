@@ -10,9 +10,14 @@ import Foundation
 
 
 enum APIConstants: String {
-    case baseUrl = "https://api.github.com"
+    case baseAPIUrl = "https://api.github.com"
+    case baseUrl =  "https://github.com"
+    case githubAuthorizationUrl = "https://github.com/login/oauth/authorize?client_id=156d628c55ad8af56059&scope=repo"
+    case githubCallbackUrl = "www.google.com"
     case githubClientSecret =  "58248becb8c7f2e8a99e87489846b979bf64e439"
     case githubClientId = "156d628c55ad8af56059"
+    case githubScope = "repo"
+   
 }
 
 enum Environment {
@@ -33,11 +38,11 @@ struct Constants {
     static var baseURL: String {
         switch environment {
         case .debug:
-            return "https://api.github.com"
+            return APIConstants.baseAPIUrl.rawValue
         case .staging:
-            return "https://api.github.com"
+            return APIConstants.baseAPIUrl.rawValue
         case .release:
-            return "https://api.github.com"
+            return APIConstants.baseAPIUrl.rawValue
         }
     }
 }

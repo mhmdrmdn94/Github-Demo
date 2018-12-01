@@ -32,12 +32,31 @@ class LoginViewController: BaseViewController {
     
     @objc fileprivate func loginWithGitubViewTapped() {
         let webViewController = GitWebViewController()
+        webViewController.delegate = self
         present(webViewController, animated: true)
     }
     
     @IBAction func skipButtonTapped(_ sender: UIButton) {
+        openHomeViewController()
+    }
+    
+    fileprivate func openHomeViewController() {
         let reposListViewController = RespositoriesListBuilder().createRespositoriesListModule()
         UIApplication.shared.keyWindow?.rootViewController = BaseNavigationController(rootViewController: reposListViewController)
     }
     
 }
+
+extension LoginViewController: GitWebViewControllerDelegate {
+    func didLoginSuccessfully() {
+        dismiss(animated: true, completion: nil)
+        openHomeViewController()
+    }
+    
+    func onError() {
+        dismiss(animated: true, completion: nil)
+        Alert.show(message: "Something went wrong!")
+    }
+    
+}
+

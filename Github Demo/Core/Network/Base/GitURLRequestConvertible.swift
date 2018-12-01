@@ -41,6 +41,10 @@ extension GitURLRequestConvertible {
         if let params = parameters {
             urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
         }
+        
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        
         return urlRequest
     }
 }
