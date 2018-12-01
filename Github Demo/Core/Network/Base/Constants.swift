@@ -11,6 +11,8 @@ import Foundation
 
 enum APIConstants: String {
     case baseUrl = "https://api.github.com"
+    case githubClientSecret =  "58248becb8c7f2e8a99e87489846b979bf64e439"
+    case githubClientId = "156d628c55ad8af56059"
 }
 
 enum Environment {
