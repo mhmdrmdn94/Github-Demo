@@ -32,6 +32,7 @@ fileprivate extension RepositoriesListViewController {
         setupSearchController()
         initNavbarButtons()
     }
+    
     func initNavbarButtons() {
         let logoutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "logout"), style: .plain, target: self, action:  #selector(logoutButtonTapped))
         let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterButtonTapped))
@@ -39,10 +40,22 @@ fileprivate extension RepositoriesListViewController {
     }
     
     @objc func logoutButtonTapped(sender: UIBarButtonItem) {
-        print("Logout button tapped ..")
+        if UserSessionManager.currentUser != nil {
+            showLogoutAlert()
+        }
     }
+    
     @objc func filterButtonTapped(sender: UIBarButtonItem) {
         print("Filter button tapped ..")
+    }
+    
+    private func showLogoutAlert() {
+        let alert = UIAlertController(title: "Alert", message: "You wanna logout?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+            UserSessionManager.logoutUser()
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }
 
