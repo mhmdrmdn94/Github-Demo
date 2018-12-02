@@ -61,8 +61,8 @@ fileprivate extension RepositoriesListViewController {
     private func showLogoutAlert() {
         let alert = UIAlertController(title: "Alert", message: "You wanna logout?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
-            UserSessionManager.logoutUser()
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [weak self] _ in
+            self?.presenter?.performLogout()
         }))
         present(alert, animated: true, completion: nil)
     }
@@ -167,6 +167,7 @@ extension RepositoriesListViewController: RespositoriesListViewProtocol {
     func reloadRepositories() {
         tableView.backgroundView = nil
         tableView.reloadData()
+        tableView.finishInfiniteScroll()
     }
 }
 

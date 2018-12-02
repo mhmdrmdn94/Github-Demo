@@ -73,28 +73,8 @@ fileprivate extension RespositoriesListInteractor {
             keyword: searchKeyword,
             page: currentPage,
             onSuccess: { [weak self] (repositories) in
-                guard let strongSelf = self else { return }
-                
-                if repositories.isEmpty {
-                    if strongSelf.currentPage == 1 {
-                        strongSelf.showEmptyState(withType: .noResults)
-                        strongSelf.repositories = []
-                        return
-                    } else {
-                        //that was tha last page to have results, then do nothing
-                        strongSelf.hasMorePages = false
-                        strongSelf.presenter?.didLoadRepositories()
-                        return
-                    }
-                }
-                
-                if strongSelf.currentPage == 1 {
-                    strongSelf.repositories = repositories
-                } else {
-                    strongSelf.repositories.append(contentsOf: repositories)
-                }
-                strongSelf.currentPage = strongSelf.currentPage + 1
-                strongSelf.presenter?.didLoadRepositories()
+
+                self?.handleRepositoriesResponse(repos: repositories)
                 
         }) { [weak self] (error) in
             let nserror = error as NSError
@@ -113,29 +93,9 @@ fileprivate extension RespositoriesListInteractor {
             page: currentPage,
             username: username,
             onSuccess: { [weak self] (repositories) in
-                guard let strongSelf = self else { return }
                 
-                if repositories.isEmpty {
-                    if strongSelf.currentPage == 1 {
-                        strongSelf.showEmptyState(withType: .noResults)
-                        strongSelf.repositories = []
-                        return
-                    } else {
-                        //that was tha last page to have results, then do nothing
-                        strongSelf.hasMorePages = false
-                        strongSelf.presenter?.didLoadRepositories()
-                        return
-                    }
-                }
-                
-                
-                if strongSelf.currentPage == 1 {
-                    strongSelf.repositories = repositories
-                } else {
-                    strongSelf.repositories.append(contentsOf: repositories)
-                }
-                strongSelf.currentPage = strongSelf.currentPage + 1
-                strongSelf.presenter?.didLoadRepositories()
+                self?.handleRepositoriesResponse(repos: repositories)
+
                 
         }) { [weak self] (error) in
             let nserror = error as NSError
@@ -145,6 +105,29 @@ fileprivate extension RespositoriesListInteractor {
                 self?.showEmptyState(withType: .someThingWentWrong)
             }
         }
+    }
+    
+    func handleRepositoriesResponse(repos: [Repository]) {
+        if repos.isEmpty {
+            if currentPage == 1 {
+                showEmptyState(withType: .noResults)
+                repositories = []
+                return
+            } else {
+                //that was tha last page to have results, then do nothing
+                hasMorePages = false
+                presenter?.didLoadRepositories()
+                return
+            }
+        }
+        
+        if currentPage == 1 {
+            repositories = repos
+        } else {
+            repositories.append(contentsOf: repos)
+        }
+        currentPage = currentPage + 1
+        presenter?.didLoadRepositories()
     }
     
 }
