@@ -43,9 +43,14 @@ fileprivate extension RepositoriesListViewController {
     }
     
     func initNavbarButtons() {
-        let logoutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "logout"), style: .plain, target: self, action:  #selector(logoutButtonTapped))
+        var rightBarButtons = [UIBarButtonItem]()
+        if UserSessionManager.currentUser != nil {
+            let logoutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "logout"), style: .plain, target: self, action:  #selector(logoutButtonTapped))
+            rightBarButtons.append(logoutButton)
+        }
         let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterButtonTapped))
-        navigationItem.rightBarButtonItems = [logoutButton, filterButton]
+        rightBarButtons.append(filterButton)
+        navigationItem.rightBarButtonItems = rightBarButtons
     }
     
     @objc func logoutButtonTapped(sender: UIBarButtonItem) {

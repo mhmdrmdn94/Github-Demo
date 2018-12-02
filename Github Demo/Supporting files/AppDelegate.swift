@@ -51,7 +51,8 @@ fileprivate extension AppDelegate {
         
         if UserSessionManager.currentUser == nil {
             let loginViewController = LoginViewController()
-            self.window?.rootViewController = loginViewController
+            let navigationController = BaseNavigationController(rootViewController: loginViewController)
+            self.window?.rootViewController = navigationController
         } else {
             let reposListViewController = RespositoriesListBuilder().createRespositoriesListModule()
             let navigationController = BaseNavigationController(rootViewController: reposListViewController)

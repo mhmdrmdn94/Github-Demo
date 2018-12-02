@@ -34,6 +34,7 @@ class UserSessionManager: NSObject {
     static func logoutUser() {
         removeUser()
         UserDefaults.standard.removeObject(forKey:  UserDefaultsKey.UserKeys.token.rawValue)
-        UIViewController.changeRootViewControllerWithAnimation(desinationViewController: LoginViewController())
+        let navigationController = BaseNavigationController(rootViewController: LoginViewController())
+        UIViewController.changeRootViewControllerWithAnimation(desinationViewController: navigationController)
     }
 }
