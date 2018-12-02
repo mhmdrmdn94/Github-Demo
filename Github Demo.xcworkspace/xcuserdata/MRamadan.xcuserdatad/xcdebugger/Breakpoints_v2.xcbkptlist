@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Views/RepositoriesListViewController.swift"
-            timestampString = "565470864.853386"
+            timestampString = "565473149.0454071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "setupTableViewInfiniteScrolling()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565470864.8537149"
+            timestampString = "565473149.04575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "handleRepositoriesResponse(repos:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565470864.853943"
+            timestampString = "565473149.045989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "handleRepositoriesResponse(repos:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565470864.854"
+            timestampString = "565473149.04605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "searchInAllGithubRepositories()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565470864.85405"
+            timestampString = "565473149.046102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "handleRepositoriesResponse(repos:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Github Demo/Modules/Repositories/Interactors/RespositoriesListInteractor.swift"
-            timestampString = "565470864.854097"
+            timestampString = "565473149.046154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "handleRepositoriesResponse(repos:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -12,8 +12,10 @@ import UIKit
 class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationBar.shadowImage = UIImage()
-//        navigationBar.isTranslucent = true
+        navigationBar.prefersLargeTitles = true
+        let searchCancelAttributes = [NSAttributedStringKey.foregroundColor: GitColor.primary.value]
+        UIBarButtonItem.appearance().setTitleTextAttributes(searchCancelAttributes , for: .normal)
+        UINavigationBar.appearance().largeTitleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: GitColor.primary.value]
     }
 }

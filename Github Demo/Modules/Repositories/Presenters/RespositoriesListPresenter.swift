@@ -29,6 +29,10 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
         interactor.loadRepositories()
     }
     
+    func resetSearchArea() {
+        interactor.resetSearchArea()
+    }
+    
     func getRepositoriesCount() -> Int {
         let count = interactor.getRepositoriesCount()
         return count

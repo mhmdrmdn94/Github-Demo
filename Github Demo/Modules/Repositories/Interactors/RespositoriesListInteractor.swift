@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
+    
     var presenter: RespositoriesListInteractorOutputProtocol?
     
     fileprivate var repositories = [Repository]()
@@ -37,6 +38,14 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
         fetchRepositories()
     }
     
+    func resetSearchArea() {
+        repositories = []
+        currentPage = 1
+        hasMorePages = true
+        presenter?.showEmptyState(with: .loading)
+        fetchRepositories()
+    }
+    
     func getRepositoriesCount() -> Int {
         let count = repositories.count
         return count
@@ -61,9 +70,12 @@ fileprivate extension RespositoriesListInteractor {
     }
     
     func fetchRepositories() {
-        if let userLogin = UserSessionManager.currentUser?.login {
+        let searchArea = GitSearchArea.current
+        switch searchArea {
+        case .myRepositories:
+            let userLogin = UserSessionManager.currentUser?.login ?? ""
             searchInCurrentLoggedInUserRepositories(username: userLogin)
-        } else {
+        case .allRepositories:
             searchInAllGithubRepositories()
         }
     }
