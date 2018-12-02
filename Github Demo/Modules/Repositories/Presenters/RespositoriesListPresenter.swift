@@ -29,6 +29,15 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
         interactor.loadRepositories()
     }
     
+    func resetSearchArea() {
+        interactor.resetSearchArea()
+    }
+    
+    func getHasMorePages() -> Bool {
+        let hasMorePages = interactor.getHasMorePages()
+        return hasMorePages
+    }
+    
     func getRepositoriesCount() -> Int {
         let count = interactor.getRepositoriesCount()
         return count
@@ -51,7 +60,7 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
     }
     
     func performLogout() {
-        interactor.performLogout()
+        UserSessionManager.logoutUser()
     }
 }
 

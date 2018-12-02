@@ -26,6 +26,7 @@
 		460D1A3E21B2E4A60013F683 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A3D21B2E4A60013F683 /* UserService.swift */; };
 		460D1A4121B2EF670013F683 /* AccessTokenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A4021B2EF670013F683 /* AccessTokenRouter.swift */; };
 		460D1A4321B2EF740013F683 /* AccessTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1A4221B2EF740013F683 /* AccessTokenService.swift */; };
+		461A2E8D21B346DF002AE57A /* ChangeRootViewController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461A2E8C21B346DF002AE57A /* ChangeRootViewController+Animation.swift */; };
 		462CE60721B14EDF00505D65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462CE60621B14EDF00505D65 /* AppDelegate.swift */; };
 		462CE60E21B14EE000505D65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 462CE60D21B14EE000505D65 /* Assets.xcassets */; };
 		462CE61121B14EE000505D65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462CE60F21B14EE000505D65 /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 		460D1A3D21B2E4A60013F683 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		460D1A4021B2EF670013F683 /* AccessTokenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRouter.swift; sourceTree = "<group>"; };
 		460D1A4221B2EF740013F683 /* AccessTokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenService.swift; sourceTree = "<group>"; };
+		461A2E8C21B346DF002AE57A /* ChangeRootViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeRootViewController+Animation.swift"; sourceTree = "<group>"; };
 		462CE60321B14EDF00505D65 /* Github Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		462CE60621B14EDF00505D65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		462CE60D21B14EE000505D65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				462CE66121B1D73F00505D65 /* GitColor.swift */,
 				462CE66321B1D74B00505D65 /* BaseViewController.swift */,
 				462CE66521B1D75900505D65 /* BaseNavigationController.swift */,
+				461A2E8C21B346DF002AE57A /* ChangeRootViewController+Animation.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				462CE63821B1862800505D65 /* Repository.swift in Sources */,
 				460D1A4321B2EF740013F683 /* AccessTokenService.swift in Sources */,
 				460D1A1721B27BBB0013F683 /* RepoDetailsPresenter.swift in Sources */,
+				461A2E8D21B346DF002AE57A /* ChangeRootViewController+Animation.swift in Sources */,
 				462CE63621B185E800505D65 /* BaseModel.swift in Sources */,
 				460D1A2A21B295D80013F683 /* ForksService.swift in Sources */,
 				460D1A1B21B27BD90013F683 /* RepoDetailsProtocols.swift in Sources */,

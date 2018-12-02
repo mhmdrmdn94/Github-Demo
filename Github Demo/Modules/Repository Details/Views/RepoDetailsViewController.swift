@@ -36,9 +36,6 @@ class RepoDetailsViewController: BaseViewController {
         
         numberOfForksLabel.textColor = GitColor.darkBlue.value
         numberOfWatchersLabel.textColor = GitColor.darkBlue.value
-        navigationController?.navigationBar.prefersLargeTitles = true
-        UINavigationBar.appearance().largeTitleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: GitColor.darkBlue.value]
     }
     
     fileprivate func populateRepoDetails(with viewModel: RepositoryViewModel) {
@@ -119,6 +116,7 @@ extension RepoDetailsViewController: RepoDetailsViewProtocol {
     func reloadForksList() {
         forksTableView.backgroundView = nil
         forksTableView.reloadData()
+        forksTableView.finishInfiniteScroll()
     }
     
     func showForksEmptyState(with type: GitEmptyStateType) {
@@ -126,6 +124,7 @@ extension RepoDetailsViewController: RepoDetailsViewProtocol {
         emptyStateView.delegate = self
         emptyStateView.type = type
         forksTableView.backgroundView = emptyStateView
+        forksTableView.finishInfiniteScroll()
     }
     
 }

@@ -37,26 +37,22 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func skipButtonTapped(_ sender: UIButton) {
-        openHomeViewController()
-    }
-    
-    fileprivate func openHomeViewController() {
         let reposListViewController = RespositoriesListBuilder().createRespositoriesListModule()
-        UIApplication.shared.keyWindow?.rootViewController = BaseNavigationController(rootViewController: reposListViewController)
+        navigationController?.pushViewController(reposListViewController, animated: true)
     }
-    
 }
 
 extension LoginViewController: GitWebViewControllerDelegate {
     func didLoginSuccessfully() {
         dismiss(animated: true, completion: nil)
-        openHomeViewController()
+        let reposListViewController = RespositoriesListBuilder().createRespositoriesListModule()
+        let navigationController = BaseNavigationController(rootViewController: reposListViewController)
+        UIViewController.changeRootViewControllerWithAnimation(desinationViewController: navigationController)
     }
     
     func onError() {
         dismiss(animated: true, completion: nil)
         Alert.show(message: "Something went wrong!")
     }
-    
 }
 

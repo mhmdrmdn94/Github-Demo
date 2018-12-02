@@ -9,6 +9,20 @@
 import UIKit
 import UIScrollView_InfiniteScroll
 
+enum GitSearchArea: String {
+    case myRepositories = "my"
+    case allRepositories = "all"
+    
+    static var current: GitSearchArea {
+        let key = UserDefaultsKey.AppKey.searchArea.rawValue
+        if let rawValue = UserDefaults.standard.value(forKey: key) as? String,
+            let searchArea = GitSearchArea(rawValue: rawValue) {
+            return searchArea
+        }
+        return .myRepositories
+    }
+}
+
 class RepositoriesListViewController: BaseViewController {
     @IBOutlet weak fileprivate var tableView: UITableView!
     
@@ -20,6 +34,7 @@ class RepositoriesListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Home"
         setupView()
         presenter?.loadRepositories(usingSearchKey: "")
     }
@@ -30,8 +45,12 @@ fileprivate extension RepositoriesListViewController {
         setupTableView()
         setupTableViewInfiniteScrolling()
         setupSearchController()
-        initNavbarButtons()
+        
+        if UserSessionManager.currentUser != nil {
+            initNavbarButtons()
+        }
     }
+    
     func initNavbarButtons() {
         let logoutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "logout"), style: .plain, target: self, action:  #selector(logoutButtonTapped))
         let filterButton = UIBarButtonItem(image: #imageLiteral(resourceName: "filter"), style: .plain, target: self, action: #selector(filterButtonTapped))
@@ -39,12 +58,59 @@ fileprivate extension RepositoriesListViewController {
     }
     
     @objc func logoutButtonTapped(sender: UIBarButtonItem) {
-        print("Logout button tapped ..")
+        if UserSessionManager.currentUser != nil {
+            showLogoutAlert()
+        }
     }
+    
     @objc func filterButtonTapped(sender: UIBarButtonItem) {
-        print("Filter button tapped ..")
+        showFilterOptionsActionSheet()
     }
 }
+
+fileprivate extension RepositoriesListViewController {
+    
+    func showLogoutAlert() {
+        let alert = UIAlertController(title: "Alert", message: "You wanna logout?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { [weak self] _ in
+            self?.presenter?.performLogout()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showFilterOptionsActionSheet() {
+        let allReposAction = UIAlertAction(title: "All Repositories",
+                                           style: .default) { [weak self] _ in
+                                            self?.changeCurrentSearchArea(newSearchArea: .allRepositories)
+        }
+        let myReposAction = UIAlertAction(title: "My Repositories",
+                                          style: .default) { [weak self] _ in
+                                            self?.changeCurrentSearchArea(newSearchArea: .myRepositories)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel) { (action) in
+        }
+        
+        let alert = UIAlertController(title: "Where to search!",
+                                      message: "Choose your preferred area? - default is your repositories",
+                                      preferredStyle: .actionSheet)
+        alert.addAction(allReposAction)
+        alert.addAction(myReposAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
+    }
+    
+    func changeCurrentSearchArea(newSearchArea: GitSearchArea) {
+        //update user-defaults
+        let key = UserDefaultsKey.AppKey.searchArea.rawValue
+        UserDefaults.standard.set(newSearchArea.rawValue, forKey: key)
+        //reset search params
+        presenter?.resetSearchArea()
+    }
+    
+}
+
 
 fileprivate extension RepositoriesListViewController {
     var cells: [UITableViewCell.Type] {
@@ -68,12 +134,12 @@ fileprivate extension RepositoriesListViewController {
     }
     
     func setupTableViewInfiniteScrolling(){
-        self.tableView.addInfiniteScroll { [weak self] (tableView) in
+        self.tableView.addInfiniteScroll { [weak self] _ in
             self?.presenter?.loadRepositories()
         }
         
-        self.tableView.setShouldShowInfiniteScrollHandler { (tableView) -> Bool in
-            return true     //cuz no last-page indicator in gethub response!
+        self.tableView.setShouldShowInfiniteScrollHandler { [weak self] _ -> Bool in
+            return self?.presenter?.getHasMorePages() ?? true
         }
     }
 }
@@ -140,11 +206,13 @@ extension RepositoriesListViewController: RespositoriesListViewProtocol {
         emptyStateView.type = type
         emptyStateView.delegate = self
         tableView.backgroundView = emptyStateView
+        tableView.finishInfiniteScroll()
     }
     
     func reloadRepositories() {
         tableView.backgroundView = nil
         tableView.reloadData()
+        tableView.finishInfiniteScroll()
     }
 }
 

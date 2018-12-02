@@ -48,8 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 fileprivate extension AppDelegate {
     func initWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let loginViewController = LoginViewController()
-        self.window?.rootViewController = loginViewController
+        
+        if UserSessionManager.currentUser == nil {
+            let loginViewController = LoginViewController()
+            let navigationController = BaseNavigationController(rootViewController: loginViewController)
+            self.window?.rootViewController = navigationController
+        } else {
+            let reposListViewController = RespositoriesListBuilder().createRespositoriesListModule()
+            let navigationController = BaseNavigationController(rootViewController: reposListViewController)
+            self.window?.rootViewController = navigationController
+        }
+        
         window!.makeKeyAndVisible()
     }
 }

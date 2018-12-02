@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import ObjectMapper
 
 public class ReposService {
@@ -29,6 +30,35 @@ public class ReposService {
             }
         }) { (dataresponse, error) in
             onFailure(error)
+        }
+    }
+    
+    //MARK:-
+    // Sorry, I did NOT have time to refactor the next method as I faced issues
+    //  with [+user:username] encoding  - -  issues related to percent escaping while sending params.
+    static func searchInLoggedInUserRepositories(keyword: String,
+                                                 page: Int,
+                                                 username: String,
+                                                 onSuccess: @escaping ([Repository]) -> (),
+                                                 onFailure: @escaping (Error) -> ()) {
+        
+        let paramsString = "q=\(keyword)+user:\(username)&page=\(page)"
+        let urlString = "https://api.github.com/search/repositories?" + paramsString
+        
+        Alamofire.request(urlString).responseJSON { dataResponse in
+            switch dataResponse.result {
+            case .success(let result):
+                if let resultJson = result as? [String:Any],
+                    let items = resultJson["items"] as? [[String:Any]] {
+                    let repositories = Mapper<Repository>().mapArray(JSONObject: items) ?? []
+                    onSuccess(repositories)
+                } else {
+                    onSuccess([])
+                }
+            
+            case .failure(let error):
+                onFailure(error)
+            }
         }
     }
 }

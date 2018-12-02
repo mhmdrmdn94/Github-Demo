@@ -9,8 +9,14 @@
 import Foundation
 
 enum UserDefaultsKey {
+    
     enum UserKeys: String {
         case currentUser = "current-user"
         case token = "token"
     }
+    
+    enum AppKey: String {
+        case searchArea = "search-area"
+    }
+    
 }
