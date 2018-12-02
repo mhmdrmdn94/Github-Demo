@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
     var presenter: RespositoriesListInteractorOutputProtocol?
@@ -14,12 +15,14 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
     fileprivate var repositories = [Repository]()
     fileprivate var currentPage = 1
     fileprivate var searchKeyword = ""
+    fileprivate var hasMorePages = true
     
     func loadRepositories(usingSearchKey newKeyword: String) {
         if searchKeyword != newKeyword {
             searchKeyword = newKeyword
             repositories = []
             currentPage = 1
+            hasMorePages = true
         }
         
         if searchKeyword.isEmpty {
@@ -49,47 +52,99 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
         let repository = repositories[indexPath.row]
         return repository
     }
-    
-    func performLogout() {
-        //TODO:- logout current user
-    }
 }
 
 fileprivate extension RespositoriesListInteractor {
     
+    func showEmptyState(withType type: GitEmptyStateType) {
+        presenter?.showEmptyState(with: type)
+    }
+    
     func fetchRepositories() {
-        ReposService
-            .search(keyword: searchKeyword,
-                    page: currentPage,
-                    onSuccess: { [weak self] (repositories) in
-                        guard let strongSelf = self else { return }
-                        
-                        if repositories.isEmpty {
-                            self?.showEmptyState(withType: .noResults)
-                            self?.repositories = []
-                            return
-                        }
-                        
-                        if strongSelf.currentPage == 1 {
-                            strongSelf.repositories = repositories
-                        } else {
-                            strongSelf.repositories.append(contentsOf: repositories)
-                        }
-                        strongSelf.currentPage = strongSelf.currentPage + 1
-                        strongSelf.presenter?.didLoadRepositories()
-                        
-            }) { [weak self] (error) in
-                let nserror = error as NSError
-                if nserror.code == 1009 {
-                    self?.showEmptyState(withType: .noInternetConnection)
-                } else {
-                    self?.showEmptyState(withType: .someThingWentWrong)
-                }
+        if let userLogin = UserSessionManager.currentUser?.login {
+            searchInCurrentLoggedInUserRepositories(username: userLogin)
+        } else {
+            searchInAllGithubRepositories()
         }
     }
     
-    func showEmptyState(withType type: GitEmptyStateType) {
-        presenter?.showEmptyState(with: type)
+    func searchInAllGithubRepositories() {
+        ReposService.search(
+            keyword: searchKeyword,
+            page: currentPage,
+            onSuccess: { [weak self] (repositories) in
+                guard let strongSelf = self else { return }
+                
+                if repositories.isEmpty {
+                    if strongSelf.currentPage == 1 {
+                        strongSelf.showEmptyState(withType: .noResults)
+                        strongSelf.repositories = []
+                        return
+                    } else {
+                        //that was tha last page to have results, then do nothing
+                        strongSelf.hasMorePages = false
+                        strongSelf.presenter?.didLoadRepositories()
+                        return
+                    }
+                }
+                
+                if strongSelf.currentPage == 1 {
+                    strongSelf.repositories = repositories
+                } else {
+                    strongSelf.repositories.append(contentsOf: repositories)
+                }
+                strongSelf.currentPage = strongSelf.currentPage + 1
+                strongSelf.presenter?.didLoadRepositories()
+                
+        }) { [weak self] (error) in
+            let nserror = error as NSError
+            if nserror.code == 1009 {
+                self?.showEmptyState(withType: .noInternetConnection)
+            } else {
+                self?.showEmptyState(withType: .someThingWentWrong)
+            }
+        }
+    }
+    
+    
+    func searchInCurrentLoggedInUserRepositories(username: String) {
+        ReposService.searchInLoggedInUserRepositories(
+            keyword: searchKeyword,
+            page: currentPage,
+            username: username,
+            onSuccess: { [weak self] (repositories) in
+                guard let strongSelf = self else { return }
+                
+                if repositories.isEmpty {
+                    if strongSelf.currentPage == 1 {
+                        strongSelf.showEmptyState(withType: .noResults)
+                        strongSelf.repositories = []
+                        return
+                    } else {
+                        //that was tha last page to have results, then do nothing
+                        strongSelf.hasMorePages = false
+                        strongSelf.presenter?.didLoadRepositories()
+                        return
+                    }
+                }
+                
+                
+                if strongSelf.currentPage == 1 {
+                    strongSelf.repositories = repositories
+                } else {
+                    strongSelf.repositories.append(contentsOf: repositories)
+                }
+                strongSelf.currentPage = strongSelf.currentPage + 1
+                strongSelf.presenter?.didLoadRepositories()
+                
+        }) { [weak self] (error) in
+            let nserror = error as NSError
+            if nserror.code == 1009 {
+                self?.showEmptyState(withType: .noInternetConnection)
+            } else {
+                self?.showEmptyState(withType: .someThingWentWrong)
+            }
+        }
     }
     
 }

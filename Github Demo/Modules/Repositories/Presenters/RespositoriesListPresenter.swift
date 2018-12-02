@@ -51,7 +51,7 @@ class RespositoriesListPresenter: RespositoriesListPresenterProtocol {
     }
     
     func performLogout() {
-        interactor.performLogout()
+        //interactor.performLogout()
     }
 }
 

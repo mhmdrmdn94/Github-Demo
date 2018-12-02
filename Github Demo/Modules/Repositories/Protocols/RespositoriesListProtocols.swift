@@ -43,7 +43,6 @@ protocol RespositoriesListInteractorProtocol: class {
     func getRepositoriesCount() -> Int
     func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel
     func getModel(at indexPath: IndexPath) -> Repository
-    func performLogout()
 }
 
 protocol RespositoriesListWireframeProtocol: class {

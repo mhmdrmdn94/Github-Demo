@@ -9,6 +9,15 @@
 import UIKit
 import UIScrollView_InfiniteScroll
 
+enum GitSearchArea {
+    case myRepositories
+    case allRepositories
+    
+    static var current: GitSearchArea {
+        return (UserSessionManager.currentUser == nil) ? .allRepositories : .myRepositories
+    }
+}
+
 class RepositoriesListViewController: BaseViewController {
     @IBOutlet weak fileprivate var tableView: UITableView!
     
