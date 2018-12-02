@@ -46,6 +46,10 @@ class RespositoriesListInteractor: RespositoriesListInteractorProtocol {
         fetchRepositories()
     }
     
+    func getHasMorePages() -> Bool {
+        return hasMorePages
+    }
+    
     func getRepositoriesCount() -> Int {
         let count = repositories.count
         return count

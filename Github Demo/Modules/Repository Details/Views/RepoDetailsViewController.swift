@@ -124,6 +124,7 @@ extension RepoDetailsViewController: RepoDetailsViewProtocol {
         emptyStateView.delegate = self
         emptyStateView.type = type
         forksTableView.backgroundView = emptyStateView
+        forksTableView.finishInfiniteScroll()
     }
     
 }

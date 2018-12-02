@@ -86,7 +86,7 @@ fileprivate extension RepositoriesListViewController {
         }
         let myReposAction = UIAlertAction(title: "My Repositories",
                                           style: .default) { [weak self] _ in
-                                            self?.changeCurrentSearchArea(newSearchArea: .allRepositories)
+                                            self?.changeCurrentSearchArea(newSearchArea: .myRepositories)
         }
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .cancel) { (action) in
@@ -134,12 +134,12 @@ fileprivate extension RepositoriesListViewController {
     }
     
     func setupTableViewInfiniteScrolling(){
-        self.tableView.addInfiniteScroll { [weak self] (tableView) in
+        self.tableView.addInfiniteScroll { [weak self] _ in
             self?.presenter?.loadRepositories()
         }
         
-        self.tableView.setShouldShowInfiniteScrollHandler { (tableView) -> Bool in
-            return true     //cuz no last-page indicator in gethub response!
+        self.tableView.setShouldShowInfiniteScrollHandler { [weak self] _ -> Bool in
+            return self?.presenter?.getHasMorePages() ?? true
         }
     }
 }
@@ -206,6 +206,7 @@ extension RepositoriesListViewController: RespositoriesListViewProtocol {
         emptyStateView.type = type
         emptyStateView.delegate = self
         tableView.backgroundView = emptyStateView
+        tableView.finishInfiniteScroll()
     }
     
     func reloadRepositories() {

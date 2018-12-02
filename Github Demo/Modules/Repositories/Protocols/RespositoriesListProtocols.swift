@@ -24,6 +24,7 @@ protocol RespositoriesListPresenterProtocol: class {
     func loadRepositories(usingSearchKey keyword: String)
     func loadRepositories()
     func resetSearchArea()
+    func getHasMorePages() -> Bool
     func getRepositoriesCount() -> Int
     func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel
     func getModel(at indexPath: IndexPath) -> Repository
@@ -42,6 +43,7 @@ protocol RespositoriesListInteractorProtocol: class {
     func loadRepositories(usingSearchKey keyword: String)
     func loadRepositories()
     func resetSearchArea()
+    func getHasMorePages() -> Bool
     func getRepositoriesCount() -> Int
     func getViewModel(at indexPath: IndexPath) -> RepositoryViewModel
     func getModel(at indexPath: IndexPath) -> Repository
